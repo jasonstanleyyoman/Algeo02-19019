@@ -1,5 +1,6 @@
 # Chika Engine a.k.a My Search Engine Can't Be This Cute
 > A search engine for searching the latest informations for anime, manga, and so on.
+> [Spesifikasi Tubes](https://drive.google.com/file/d/1YThhhPhrX3xce4vwtH8fGhKR4euv_HSX/view) | [Laporan](https://docs.google.com/document/d/1wVcsBjCHXk4DWX5mus3BnXL9-69UUYrisBg9_Wo6zrI/edit?ts=5f9bc110)
 
 ## Table of contents
 * [General info](#general-info)
