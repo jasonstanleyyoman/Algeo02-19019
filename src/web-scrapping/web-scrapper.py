@@ -4,8 +4,6 @@ import json
 from bs4 import BeautifulSoup
 
 def start():
-    print("Hello world")
-    success = 0
     all_links = []
     all_title = []
     all_data = []
@@ -18,14 +16,12 @@ def start():
         try :
             data = ""
             anime_link = link.get("href")
-            print("Link :")
             print(anime_link)
 
             anime_page = requests.get(anime_link)
             anime_soup = BeautifulSoup(anime_page.content,'html.parser')
 
             # Get Title
-            print("Title :")
             anime_title = anime_soup.find(class_="title-name h1_bold_none").text
             data += (anime_title + " ") * 10
 
@@ -34,42 +30,36 @@ def start():
 
 
             # Get Synopsis
-            print("Synopsis : ")
             synoposis = anime_soup.find(itemprop="description").text
             data += synoposis
 
             # Get Alternative Title
             alternative = anime_soup.find_all("div", class_="spaceit_pad")
-            print("Alternative : ")
             for alt in alternative :
                 if alt.find("span") != None:
                     data += alt.text
 
             # Get Character, Voice Actor, Staff
-            print("Character, Voice Actor, Staff : ")
             containers = anime_soup.find_all("div", class_="detail-characters-list clearfix")
             for container in containers :
                 all_character = container.find_all("a")
                 for character in all_character:
-                    data += character.text.lstrip().rstrip()
+                    data += (character.text.lstrip().rstrip() + " ") * 5
 
             # Get Opening Theme
-            print("Opening Theme : ")
             all_opening = anime_soup.find("div", class_="theme-songs js-theme-songs opnening").find_all("span")
             for opening in all_opening:
-                data += opening.text
+                data += (opening.text + " ") * 8
 
             # Get Ending Theme
-            print("Ending Theme : ")
             all_ending = anime_soup.find("div", class_="theme-songs js-theme-songs ending").find_all("span")
             for ending in all_ending:
-                data += ending.text
+                data += (ending.text + " ") * 8
 
             # Get Genre and Producers
-            print("Genre : ")
             all_genre_and_producer = [link.text for link in anime_soup.find_all("a") if link.get("href") and (link.get("href").find("genre") != -1 or link.get("href").find("producer") != -1)]
             for genre_and_producer in all_genre_and_producer :
-                data += genre_and_producer + " "
+                data += (genre_and_producer + " ") * 5
 
             all_title.append(anime_title)
             all_links.append(anime_link)
@@ -84,8 +74,6 @@ def start():
         i += 1
         # Sementara ambil 9 data dulu
         if i == 10:
-            print("Successfullly get information of this anime")
-
             break
     for title in all_title :
         print(title)
