@@ -29,7 +29,7 @@ def process_sentence(sentence):
     return stemmed_words
 
 
-with open ("../web-scrapping/data.json") as file:
+with open ("web-scrapping/data.json") as file:
     all_sentence_list = json.load(file)
 
     # Memproses setiap kalimat

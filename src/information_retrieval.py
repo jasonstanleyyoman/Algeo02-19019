@@ -6,9 +6,9 @@ import json
 from preprocess import process_sentence
 
 def retrieve_information(query):
-    with open ("../web-scrapping/links.json") as file :
+    with open ("web-scrapping/links.json") as file :
         all_links = json.load(file)
-    with open ("../web-scrapping/titles.json") as file :
+    with open ("web-scrapping/titles.json") as file :
         all_titles = json.load(file)
     # Load preprocess numpy array
     cleared_sentence_list = np.load("cleared_sentence_list.npy")
@@ -32,7 +32,7 @@ def retrieve_information(query):
     for i in range(len(cleared_sentence_list)):
         similarity[i] = np.dot(df.loc[:, i].values, q_vec) / np.linalg.norm(df.loc[:, i]) * np.linalg.norm(q_vec)
     # Sort similarity
-    similarity_sorted = sorted(sim.items(), key=lambda x: x[1], reverse=True)
+    similarity_sorted = sorted(similarity.items(), key=lambda x: x[1], reverse=True)
     rank = []
 
     # Get ranks
