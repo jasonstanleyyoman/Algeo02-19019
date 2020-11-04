@@ -4,6 +4,7 @@ import numpy as np
 import json
 import os
 import pdftotext
+from bs4 import BeautifulSoup
 
 from preprocess import process_sentence, preprocess
 
@@ -114,6 +115,28 @@ def upload_file (file,filename) :
         save_data(all_data)
 
         preprocess()
+    elif filename.lower().endswith(".doc"):
+        pass
+    elif filename.lower().endswith(".html"):
+        soup = BeautifulSoup(file,"html.parser")
+        text = soup.text
+
+        all_links = load_links()
+
+        all_titles = load_titles()
+
+        all_data = load_data()
+
+        all_links.append(filename)
+        all_titles.append(filename)
+        all_data.append(str(text))
+
+        save_links(all_links)
+        save_titles(all_titles)
+        save_data(all_data)
+
+        preprocess()
+
     #
     # preprocess()
 # numpyarray = np.load("./cleared_sentence.npy")
