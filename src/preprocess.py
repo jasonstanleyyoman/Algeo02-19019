@@ -28,11 +28,12 @@ def process_sentence(sentence):
 
     return stemmed_words
 
+def preprocess() :
+    
+    with open ("web-scrapping/data.json") as file:
+        all_sentence_list = json.load(file)
 
-with open ("web-scrapping/data.json") as file:
-    all_sentence_list = json.load(file)
+        # Memproses setiap kalimat
+        cleared_sentence_list = [" ".join(process_sentence(sentence)) for sentence in all_sentence_list]
 
-    # Memproses setiap kalimat
-    cleared_sentence_list = [" ".join(process_sentence(sentence)) for sentence in all_sentence_list]
-
-    np.save("cleared_sentence_list",cleared_sentence_list)
+        np.save("cleared_sentence",cleared_sentence_list)

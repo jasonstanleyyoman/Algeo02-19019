@@ -1,6 +1,6 @@
 import os
 import numpy as np
-from information_retrieval import retrieve_information
+from .information_retrieval import retrieve_information, upload_file
 from flask import Flask, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 
@@ -24,6 +24,7 @@ def show_file(filename):
 # SEARCH PAGE
 @app.route('/searched/<query>', methods=['POST', 'GET'])
 def searched(query):
+    retrieved = ""
     if request.method == 'POST':
         retrieved = retrieve_information(query)
         # print(retrieved)
@@ -42,6 +43,7 @@ def upload():
 
         # uploaded_files = flask.request.files.getlist("file[]")
         file = request.files['file']
+        upload_file(file,file.filename);
         if file.filename == '':
             print("No file selected")
             return redirect(request.url)
@@ -51,9 +53,9 @@ def upload():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             # if filename in os.path.join(app.config['UPLOAD_FOLDER']):
             #     try:
-                    
+
             #     except:
-            #         print('Something was wrong')      
+            #         print('Something was wrong')
             return {"iya" : "halo"} , 200
 
 if __name__ == '__main__':
