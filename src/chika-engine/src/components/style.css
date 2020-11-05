@@ -1,0 +1,27 @@
+/* Button */
+.btn-tombol {
+    background-color: #EBD6D3 !important;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color : #7E7E7E;
+    font-weight: bold;
+    border-radius: 0% !important; 
+    width: 12.5rem;
+  }
+
+/* About Us Modal */
+.modal-body{
+    padding: 2.5rem !important;
+}
+
+.about-us-title{
+    font-family: 'Lato Black';
+    font-size : 4em;
+}
+
+.about-us-jap{
+    font-style: italic;
+}
+
+

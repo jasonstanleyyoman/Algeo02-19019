@@ -1,0 +1,46 @@
+/* General */
+.margin-top-half{
+  margin-top: 10%;
+}
+
+/* Header */
+.page-size{
+  height: 100vh;
+}
+
+.title-bubble {
+  background-color: RGBA(255,255,255,0.8);
+  padding: 2rem;
+  border-top-right-radius: 8%;
+  border-bottom-right-radius: 8%;
+}
+
+.title-app{
+  font-family: Lato;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 4.5rem;
+  color: #B87986;
+}
+
+.subtitle-app{
+  font-family: Lato;
+  font-style: italic;
+  font-size: 1.5rem;
+
+}
+
+/* Buttons */
+.margin-top-bot{
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+/* Footer */
+.footer{
+  color: #B87986;
+  background-color: #EBD6D3;
+  margin: 0;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
