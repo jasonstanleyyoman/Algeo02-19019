@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import { Link } from 'react-router-dom';
 
 const SearchBar = ({keyword,setKeyword}) => {
@@ -10,14 +10,14 @@ const SearchBar = ({keyword,setKeyword}) => {
           document.getElementById("search-feed").scrollIntoView();
       }
   }
-  
-  return (
+
+  return ( 
     <input 
      style={BarStyling}
      key="random1"
      value={keyword}
      placeholder={"What do you want to know?"}
-     //onChange={(e) => setKeyword(e.target.value)}
+     onChange={(e) => setKeyword(e.target.value)}
      onKeyDown={(e) => something(e)}
     />
   );
