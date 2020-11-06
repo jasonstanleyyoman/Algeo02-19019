@@ -1,13 +1,17 @@
 import React  from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+
+const BarStyling = {width:"75rem",background:"RGBA(255,255,255,0.8)", border:"none", padding:"1.5rem"};
 
 const SearchBar = ({keyword,setKeyword}) => {
-  const BarStyling = {width:"75rem",background:"RGBA(255,255,255,0.8)", border:"none", padding:"1.5rem"};
-  
-  const something = (event) => {
+  const history = useHistory();
+
+  const redirect = (event) => {
+      // when enter, redirects
       if (event.keyCode === 13) {
           alert("Yo Mama")
-          document.getElementById("search-feed").scrollIntoView();
+          // document.getElementById("search-feed").scrollIntoView();
+          history.push('searched/' + keyword)
       }
   }
 
@@ -18,7 +22,7 @@ const SearchBar = ({keyword,setKeyword}) => {
      value={keyword}
      placeholder={"What do you want to know?"}
      onChange={(e) => setKeyword(e.target.value)}
-     onKeyDown={(e) => something(e)}
+     onKeyDown={(e) => redirect(e)}
     />
   );
 }

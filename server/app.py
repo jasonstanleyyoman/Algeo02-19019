@@ -1,6 +1,6 @@
 import os
 import numpy as np
-from .information_retrieval import retrieve_information, upload_file
+from information_retrieval import retrieve_information, upload_file
 from flask import Flask, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 from datetime import datetime
@@ -30,11 +30,7 @@ def searched(query):
     retrieved = ""
     if request.method == 'GET':
         retrieved = retrieve_information(query)
-        # print(retrieved)
-        # if query !='':
-            # return redirect(url_for('searched', name = query))
-    return {"test" : retrieved} , 200
-    # return test.json()
+    return {"data" : retrieved} , 200
 
 # UPLOAD FILE
 @app.route('/upload', methods=['POST', 'GET'])
