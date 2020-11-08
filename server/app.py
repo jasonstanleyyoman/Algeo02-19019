@@ -68,7 +68,7 @@ def upload():
 
             #     except:
             #         print('Something was wrong')
-            return {"iya" : "halo"} , 200
+            return {"message" : "File successfully uploaded!"} , 200
 
 if __name__ == '__main__':
     app.run(debug=True)

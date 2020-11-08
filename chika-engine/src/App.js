@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import Home from './pages/Home';
-import Searched from './pages/Searched';
+import Searched from './pages/searched';
 
 const App = () => {
   return (
@@ -14,7 +14,6 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/searched/:query" component={Searched} />
-        {/* /searched/<query> */}
       </Switch>
     </Router>
   ) 

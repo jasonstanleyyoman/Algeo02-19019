@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useDropzone } from 'react-dropzone';
+import { useHistory } from 'react-router'
 import './style.css';
 
 function DragAndDrop() {
     const [files, setFiles] = useState([]);
-
+    const history = useHistory();
     const { getRootProps, getInputProps } = useDropzone({
-        accept: ".html",
+        accept: [".txt", ".html", ".pdf"],
         onDrop: (acceptedFiles) => {
-          setFiles(
-            acceptedFiles.map((file) =>
-              Object.assign(file, {
-                preview: URL.createObjectURL(file),
-              })
-            )
-          )
+          const file = acceptedFiles[0];
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("file_1",file);
+          axios.post("http://127.0.0.1:5000/upload",formData).
+          then((data)=>{
+            console.log(data.data);
+            history.go(0);
+          })
         },
     });
 

@@ -70,14 +70,17 @@ def retrieve_information(query):
 
     # Get cosine similarity
     for i in range(len(cleared_sentence_list)):
-        similarity[i] = np.dot(x[i], q_vec) / (np.linalg.norm(x[i]) * np.linalg.norm(q_vec))
+        if (np.linalg.norm(x[i]) * np.linalg.norm(q_vec)) == 0:
+            similarity[i] = 0
+        else:
+            similarity[i] = np.dot(x[i], q_vec) / (np.linalg.norm(x[i]) * np.linalg.norm(q_vec))
     # Sort similarity
     similarity_sorted = sorted(similarity.items(), key=lambda x: x[1], reverse=True)
     ranks = []
 
     # Get ranks
     for indeks, sim in similarity_sorted:
-        if sim != 0.0:
+        if sim != 0.0 :
             data = {
                 "title" : all_titles[indeks],
                 "links" : all_links[indeks],
@@ -178,4 +181,4 @@ def upload_file (file,filename) :
 
 if __name__ == "__main__" :
 
-    print(retrieve_information("metal")[0]["title"])
+    print(retrieve_information("monyet"))

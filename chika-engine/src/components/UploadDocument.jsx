@@ -15,7 +15,7 @@ function MyVerticallyCenteredModal(props) {
         centered
       >
         <Modal.Body>
-          <h3>Upload you document</h3>
+          <h3>Upload your document(s)</h3>
 
           <DragAndDrop />
 
