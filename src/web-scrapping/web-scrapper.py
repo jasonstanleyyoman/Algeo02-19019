@@ -7,6 +7,7 @@ def start():
     all_links = []
     all_title = []
     all_data = []
+    all_synopsis = []
     URL = "https://myanimelist.net/topanime.php?limit=0"
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -64,13 +65,13 @@ def start():
             all_title.append(anime_title)
             all_links.append(anime_link)
             all_data.append(data)
-
+            all_synopsis.append(synoposis)
             print(data)
-            success += 1
 
-        except:
+        except Exception as err:
             print("Error")
             print(link)
+            print(err)
         i += 1
         # Sementara ambil 9 data dulu
         if i == 10:
@@ -83,6 +84,7 @@ def start():
         json.dump(all_links, file)
     with open('data.json', 'w') as file:
         json.dump(all_data, file)
-
+    with open('synoposis.json', 'w') as file:
+        json.dump(all_synopsis, file)
 if __name__ == "__main__" :
     start()

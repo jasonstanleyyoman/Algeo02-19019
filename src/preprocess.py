@@ -29,7 +29,6 @@ def process_sentence(sentence):
     return stemmed_words
 
 def preprocess() :
-    
     with open ("web-scrapping/data.json") as file:
         all_sentence_list = json.load(file)
 
