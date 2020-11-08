@@ -6,8 +6,8 @@ import os
 import pdftotext
 from bs4 import BeautifulSoup
 
-from .preprocess import process_sentence, preprocess
-from .get_15_word import get_first_15_words
+from preprocess import process_sentence, preprocess
+from get_15_word import get_first_15_words
 
 baseURL = "http://127.0.0.1:5000/file/"
 
@@ -89,7 +89,10 @@ def retrieve_information(query):
 
 def upload_file (file,filename) :
     if filename.lower().endswith(".pdf"):
+        print(file)
+        print("sampai sini")
         result = pdftotext.PDF(file)
+        print(result)
         result = "\n\n".join(result)
         first_15_words = get_first_15_words(result)
 
@@ -103,9 +106,9 @@ def upload_file (file,filename) :
         all_first_15_words = load_first_15_words()
 
 
-
-        all_links.append(filename)
-        all_titles.append(baseURL + filename)
+        print(baseURL + filename)
+        all_links.append(baseURL + filename)
+        all_titles.append(filename)
         all_data.append(str(result))
         all_first_15_words.append(first_15_words)
 
@@ -117,8 +120,9 @@ def upload_file (file,filename) :
 
         preprocess()
     elif filename.lower().endswith(".txt"):
-        file = file.read()
-        first_15_words = get_first_15_words(str(file))
+        file_ = file.read()
+        print(file_)
+        first_15_words = get_first_15_words(str(file_))
 
         all_links = load_links()
 
@@ -128,9 +132,10 @@ def upload_file (file,filename) :
 
         all_first_15_words = load_first_15_words()
 
-        all_links.append(filename)
-        all_titles.append(baseURL + filename)
-        all_data.append(str(file))
+
+        all_links.append(baseURL + filename)
+        all_titles.append(filename)
+        all_data.append(str(file_))
         all_first_15_words.append(first_15_words)
 
 
@@ -155,8 +160,8 @@ def upload_file (file,filename) :
 
         all_first_15_words = load_first_15_words()
 
-        all_links.append(filename)
-        all_titles.append(baseURL + filename)
+        all_links.append(baseURL + filename)
+        all_titles.append(filename)
         all_data.append(str(text))
         all_first_15_words.append(first_15_words)
 

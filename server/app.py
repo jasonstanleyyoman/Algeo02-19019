@@ -42,21 +42,27 @@ def upload():
 
         # uploaded_files = flask.request.files.getlist("file[]")
         file = request.files['file']
-        upload_file(file,file.filename)
+        fileToUpload = request.files['file_1']
         if file.filename == '':
             print("No file selected")
             return redirect(request.url)
 
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
             # To get the current timestamp
+
             now = datetime.now()
+            filename = secure_filename(file.filename)
             timestamp = datetime.timestamp(now)
-            # Save into directory
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             new_name = str(timestamp) + "_" + filename
+
+
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], new_name))
+            # if not firstSuccess :
+            #     print("second")
+            upload_file(fileToUpload,new_name)
+
             # Rename file name
-            os.rename(r'../uploads/' + filename, r'../uploads/' + new_name)
+            # os.rename(r'../uploads/' + filename, r'../uploads/' + new_name)
             # if filename in os.path.join(app.config['UPLOAD_FOLDER']):
             #     try:
 
