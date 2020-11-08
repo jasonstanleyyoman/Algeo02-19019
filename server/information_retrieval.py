@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from .preprocess import process_sentence, preprocess
 from .get_15_word import get_first_15_words
 
+baseURL = "http://127.0.0.1:5000/file/"
 
 def load_links () :
     with open ("web-scrapping/links.json") as file :
@@ -80,7 +81,7 @@ def retrieve_information(query):
             data = {
                 "title" : all_titles[indeks],
                 "links" : all_links[indeks],
-                "first_15_words" : all_first_15_words[indeks]
+                "first_15_words" : all_first_15_words[indeks],
                 "similarity" : sim,
             }
             ranks.append(data)
@@ -104,7 +105,7 @@ def upload_file (file,filename) :
 
 
         all_links.append(filename)
-        all_titles.append(filename)
+        all_titles.append(baseURL + filename)
         all_data.append(str(result))
         all_first_15_words.append(first_15_words)
 
@@ -128,7 +129,7 @@ def upload_file (file,filename) :
         all_first_15_words = load_first_15_words()
 
         all_links.append(filename)
-        all_titles.append(filename)
+        all_titles.append(baseURL + filename)
         all_data.append(str(file))
         all_first_15_words.append(first_15_words)
 
@@ -155,7 +156,7 @@ def upload_file (file,filename) :
         all_first_15_words = load_first_15_words()
 
         all_links.append(filename)
-        all_titles.append(filename)
+        all_titles.append(baseURL + filename)
         all_data.append(str(text))
         all_first_15_words.append(first_15_words)
 
