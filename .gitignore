@@ -3,3 +3,4 @@ env
 .vscode
 venv/
 test_upload/
+chika-engine/node_modules
