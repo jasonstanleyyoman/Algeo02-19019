@@ -4,17 +4,6 @@ import math
 from sklearn.feature_extraction.text import TfidfVectorizer
 from collections import Counter
 
-def decimalize(arr, total):
-    for i in range (len(arr)):
-        arr[i] = arr[i]/total
-    return arr
-
-# def concat(arr_before, arr_result, i):
-#     if i == 0:
-#         arr_result[0] = arr_before
-#     else:
-        
-
 def vectorize1(arr):
     length = len(arr)
     for i in range (length):
