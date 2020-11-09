@@ -86,16 +86,16 @@ def retrieve_information(query):
     for i in range(len(cleared_sentence_list)):
         if (np.linalg.norm(x[i]) * np.linalg.norm(q_vec)) == 0:
             similarity[i] = 0
-        else :
+        else:
             similarity[i] = np.dot(x[i], q_vec) / (np.linalg.norm(x[i]) * np.linalg.norm(q_vec))
     # Sort similarity
     similarity_sorted = sorted(similarity.items(), key=lambda x: x[1], reverse=True)
     ranks = []
 
     # Get ranks
+    print(similarity_sorted)
     for indeks, sim in similarity_sorted:
-        print(sim)
-        if sim != 0.0:
+        if sim != 0.0 :
             data = {
                 "title" : all_titles[indeks],
                 "links" : all_links[indeks],
@@ -106,12 +106,9 @@ def retrieve_information(query):
             ranks.append(data)
     return ranks
 
-def upload_file (file,filename) :
+def upload_file (file,filename, original_filename) :
     if filename.lower().endswith(".pdf"):
-        print(file)
-        print("sampai sini")
         result = pdftotext.PDF(file)
-        print(result)
         result = "\n\n".join(result)
         first_15_words = get_first_15_words(result)
         total_words = get_total_words(result)
@@ -129,7 +126,7 @@ def upload_file (file,filename) :
 
 
         all_links.append(baseURL + filename)
-        all_titles.append(filename)
+        all_titles.append(original_filename)
         all_data.append(str(result))
         all_first_15_words.append(first_15_words)
         all_total_words.append(total_words)
@@ -144,9 +141,8 @@ def upload_file (file,filename) :
         preprocess()
     elif filename.lower().endswith(".txt"):
         file_ = file.read()
-        print(file_)
         first_15_words = get_first_15_words(str(file_))
-        total_words = get_total_words(file_)
+        total_words = get_total_words(str(file_))
 
         all_links = load_links()
 
@@ -161,7 +157,7 @@ def upload_file (file,filename) :
 
 
         all_links.append(baseURL + filename)
-        all_titles.append(filename)
+        all_titles.append(original_filename)
         all_data.append(str(file_))
         all_first_15_words.append(first_15_words)
         all_total_words.append(total_words)
@@ -179,7 +175,7 @@ def upload_file (file,filename) :
     elif filename.lower().endswith(".html"):
         soup = BeautifulSoup(file,"html.parser")
         text = soup.text
-        first_15_words = get_first_15_words(file)
+        first_15_words = get_first_15_words(text)
         total_words = get_total_words(text)
 
         all_links = load_links()
@@ -193,7 +189,7 @@ def upload_file (file,filename) :
         all_total_words = load_total_words()
 
         all_links.append(baseURL + filename)
-        all_titles.append(filename)
+        all_titles.append(original_filename)
         all_data.append(str(text))
         all_first_15_words.append(first_15_words)
         all_total_words.append(total_words)
@@ -212,4 +208,4 @@ def upload_file (file,filename) :
 
 if __name__ == "__main__" :
 
-    print(retrieve_information("metal")[0]["title"])
+    print(retrieve_information("monyet"))

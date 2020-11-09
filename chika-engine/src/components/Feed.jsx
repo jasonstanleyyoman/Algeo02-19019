@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Feed = ({links, similarity, title}) => {
+const Feed = ({links, similarity, title, sentence}) => {
     
     return (
         <div>
-            <h1>{title}</h1>
-            <div>{links}</div>
-            <div>{similarity}</div>
+            <h2><a href={links}target="_blank">{title}</a></h2>
+            <div>Tingkat kemiripan: {similarity}%</div>
+            <div>{sentence}</div>
         </div>
     );
 };

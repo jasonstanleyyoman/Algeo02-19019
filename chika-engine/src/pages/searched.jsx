@@ -20,6 +20,7 @@ const Searched = ({match}) => {
                 data: {}
             })
             .then(response => {
+                console.log(response.data);
                 setFeeds(response.data.data);
                 setLoading(false);
             })
@@ -32,32 +33,32 @@ const Searched = ({match}) => {
         showResult();
     }, []);
 
-    return (
+    let component = ""
+    if (isLoading) {
+        component = (<div>
+                        <p>Now loading...</p>
+                    </div>)
+    } else {
+        if (feeds.length === 0) {
+            component = (<div>
+                            <p>Page not found</p>
+                        </div>)
+        } else {
+            component = feeds.map((feed, index) =>
+                <div key={`${index}-feed-${match}-${feed.links}`}>
+                    <Feed links={feed.links} similarity={feed.similarity} title={feed.title} sentence={feed.first_15_words} />
+                </div>
+            )
+        }
+    }
+
+    return(
         <div>
             <div>
-            {
-                isLoading ?
-                    <div>
-                        <p>Now loading...</p>
-                    </div>
-                    :
-                    feeds.length ?
-                        feeds.map((feed, index) =>
-                            <div key={`${index}-feed-${match}-${feed.links}`}>
-                                <Feed links={feed.links} similarity={feed.similarity} title={feed.title} />
-                            </div>
-                        )
-                        :
-                        <div>
-                            <p>Page not found</p>
-                        </div>
-            }
+                {component}
             </div>
-
-
-
         </div>
     )
 }
 
-export default Searched;
+export default Searched
