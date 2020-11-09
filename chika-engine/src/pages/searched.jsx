@@ -16,7 +16,7 @@ const Searched = ({match}) => {
                     'Access-Control-Allow-Origin' : "*",
                     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
                 },
-                url: "http://localhost:5000/searched/" + query, 
+                url: "http://localhost:5000/searched/" + query,
                 data: {}
             })
             .then(response => {

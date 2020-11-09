@@ -5,6 +5,7 @@ from flask import Flask, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 from datetime import datetime
 from flask_cors import CORS
+import time
 
 # Used for uploading files
 UPLOAD_FOLDER = '../uploads/'
@@ -35,6 +36,8 @@ def searched(query):
 # UPLOAD FILE
 @app.route('/upload', methods=['POST', 'GET'])
 def upload():
+    time.sleep(4)
+    print(request.files)
     if request.method == 'POST':
         if 'file' not in request.files:
             print("No file selected")
@@ -59,7 +62,7 @@ def upload():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], new_name))
             # if not firstSuccess :
             #     print("second")
-            upload_file(fileToUpload,new_name)
+            upload_file(fileToUpload,new_name, file.filename)
 
             # Rename file name
             # os.rename(r'../uploads/' + filename, r'../uploads/' + new_name)

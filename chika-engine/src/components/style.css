@@ -6,7 +6,7 @@
     padding-right: 1rem;
     color : #7E7E7E;
     font-weight: bold;
-    border-radius: 0% !important; 
+    border-radius: 0% !important;
     width: 12.5rem;
   }
 
@@ -23,5 +23,38 @@
 .about-us-jap{
     font-style: italic;
 }
+.dragndrop__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dropzone {
+    align-self: stretch;
+    border : 1px solid black;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(200,200,200,0.3);
+    border : 1px dashed rgba(200,200,200,0.8);
+    border-radius: 3px;
+}
+.dropzone p {
+    font-size: 1.3em;
+}
+.File__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.File__container p {
+    font-size: 3em;
+    text-align: center;
+}
+.Button__container {
+    margin-top: 3%;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
 
-
+}
