@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 
 from preprocess import process_sentence, preprocess
 from get_15_word import get_first_15_words
+from total_words import get_total_words
 
 baseURL = "http://127.0.0.1:5000/file/"
 
@@ -30,6 +31,11 @@ def load_first_15_words () :
         all_first_15_words = json.load(file)
         return all_first_15_words
 
+def load_total_words () :
+    with open ("web-scrapping/total_words.json") as file :
+        all_total_words = json.load(file)
+        return all_total_words
+
 def save_links (all_links) :
     with open ("web-scrapping/links.json", "w") as file :
         json.dump(all_links,file)
@@ -45,6 +51,12 @@ def save_data (all_titles) :
 def save_first_15_words (all_first_15_words) :
     with open ("web-scrapping/first_15_word.json", "w") as file :
         json.dump(all_first_15_words,file)
+
+def save_total_words (all_total_words) :
+    with open ("web-scrapping/total_words.json", "w") as file :
+        json.dump(all_total_words,file)
+
+
 def retrieve_information(query):
 
     all_links = load_links()
@@ -52,6 +64,8 @@ def retrieve_information(query):
     all_titles = load_titles()
 
     all_first_15_words = load_first_15_words()
+
+    all_total_words = load_total_words()
 
     # Load preprocess numpy array
     cleared_sentence_list = np.load("cleared_sentence.npy")
@@ -70,18 +84,23 @@ def retrieve_information(query):
 
     # Get cosine similarity
     for i in range(len(cleared_sentence_list)):
-        similarity[i] = np.dot(x[i], q_vec) / (np.linalg.norm(x[i]) * np.linalg.norm(q_vec))
+        if (np.linalg.norm(x[i]) * np.linalg.norm(q_vec)) == 0:
+            similarity[i] = 0
+        else :
+            similarity[i] = np.dot(x[i], q_vec) / (np.linalg.norm(x[i]) * np.linalg.norm(q_vec))
     # Sort similarity
     similarity_sorted = sorted(similarity.items(), key=lambda x: x[1], reverse=True)
     ranks = []
 
     # Get ranks
     for indeks, sim in similarity_sorted:
+        print(sim)
         if sim != 0.0:
             data = {
                 "title" : all_titles[indeks],
                 "links" : all_links[indeks],
                 "first_15_words" : all_first_15_words[indeks],
+                "total_words" : all_total_words[indeks],
                 "similarity" : sim,
             }
             ranks.append(data)
@@ -95,6 +114,7 @@ def upload_file (file,filename) :
         print(result)
         result = "\n\n".join(result)
         first_15_words = get_first_15_words(result)
+        total_words = get_total_words(result)
 
 
         all_links = load_links()
@@ -105,24 +125,28 @@ def upload_file (file,filename) :
 
         all_first_15_words = load_first_15_words()
 
+        all_total_words = load_total_words()
 
-        print(baseURL + filename)
+
         all_links.append(baseURL + filename)
         all_titles.append(filename)
         all_data.append(str(result))
         all_first_15_words.append(first_15_words)
+        all_total_words.append(total_words)
 
 
         save_links(all_links)
         save_titles(all_titles)
         save_data(all_data)
         save_first_15_words(all_first_15_words)
+        save_total_words(all_total_words)
 
         preprocess()
     elif filename.lower().endswith(".txt"):
         file_ = file.read()
         print(file_)
         first_15_words = get_first_15_words(str(file_))
+        total_words = get_total_words(file_)
 
         all_links = load_links()
 
@@ -132,17 +156,22 @@ def upload_file (file,filename) :
 
         all_first_15_words = load_first_15_words()
 
+        all_total_words = load_total_words()
+
+
 
         all_links.append(baseURL + filename)
         all_titles.append(filename)
         all_data.append(str(file_))
         all_first_15_words.append(first_15_words)
+        all_total_words.append(total_words)
 
 
         save_links(all_links)
         save_titles(all_titles)
         save_data(all_data)
         save_first_15_words(all_first_15_words)
+        save_total_words(all_total_words)
 
         preprocess()
     elif filename.lower().endswith(".doc"):
@@ -151,6 +180,7 @@ def upload_file (file,filename) :
         soup = BeautifulSoup(file,"html.parser")
         text = soup.text
         first_15_words = get_first_15_words(file)
+        total_words = get_total_words(text)
 
         all_links = load_links()
 
@@ -160,15 +190,19 @@ def upload_file (file,filename) :
 
         all_first_15_words = load_first_15_words()
 
+        all_total_words = load_total_words()
+
         all_links.append(baseURL + filename)
         all_titles.append(filename)
         all_data.append(str(text))
         all_first_15_words.append(first_15_words)
+        all_total_words.append(total_words)
 
         save_links(all_links)
         save_titles(all_titles)
         save_data(all_data)
         save_first_15_words(all_first_15_words)
+        save_total_words(all_total_words)
 
         preprocess()
 

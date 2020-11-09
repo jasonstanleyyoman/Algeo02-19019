@@ -16,7 +16,7 @@ const Searched = ({match}) => {
                     'Access-Control-Allow-Origin' : "*",
                     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
                 },
-                url: "http://localhost:5000/searched/" + query, 
+                url: "http://localhost:5000/searched/" + query,
                 data: {}
             })
             .then(response => {
@@ -39,14 +39,14 @@ const Searched = ({match}) => {
                 isLoading ?
                     <div>
                         <p>Now loading...</p>
-                    </div> 
+                    </div>
                     :
                     feeds.length ?
-                        feeds.map((feed, index) => 
+                        feeds.map((feed, index) =>
                             <div key={`${index}-feed-${match}-${feed.links}`}>
                                 <Feed links={feed.links} similarity={feed.similarity} title={feed.title} />
                             </div>
-                        ) 
+                        )
                         :
                         <div>
                             <p>Page not found</p>
@@ -54,7 +54,7 @@ const Searched = ({match}) => {
             }
             </div>
 
-            
+
 
         </div>
     )
