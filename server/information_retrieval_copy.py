@@ -70,8 +70,11 @@ def retrieve_information(query):
     # x = np.transpose(x.T.toarray())
     # print(type(x))
 
+    x, q_vec = vectorize(cleared_sentence_list, query)
+    print(x)
+    print(q_vec)
     # Vectorize query
-    q_vec = vectorize(query)
+    # q_vec = vectorize(query)
     # print(vectorizer.transform(query).toarray())
     # print("------------------------------------------------------")
     # print(query)
