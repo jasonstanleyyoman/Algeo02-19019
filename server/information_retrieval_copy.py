@@ -196,4 +196,4 @@ def upload_file (file,filename) :
 
 if __name__ == "__main__" :
 
-    print(retrieve_information("fullmet tes"))
+    print(retrieve_information("fullmetal tes"))

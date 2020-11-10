@@ -12,18 +12,20 @@ def vectorize(arr, query):
     bag_words = []
     for i in range (total_docs):
         sentence = arr[i]
-        words = sentence.split()
+        words = sentence.split(" ")
         bag_words.append(words)
         if i == 0:
             unique_words = words
         else:
             unique_words = set(unique_words).union(set(words))
-    
+
     # To remove duplicate words from query
+
     bag_query = []
-    words_query = query[0].split()
+    words_query = query.split()
     bag_query.append(words_query)
     unique_words = set(unique_words).union(set(words_query))
+
 
     # Search for occurence of every words from each documents and query
     words_list = list(unique_words)
@@ -41,7 +43,7 @@ def vectorize(arr, query):
             if bag in words_list:
                 idx = words_list.index(bag)
                 count_words[i][idx] +=1
-    
+
     # Compute TF
     tf = [[0 for j in range (len(words_list))] for i in range (total_docs+1)]
     for i in range (total_docs+1):
@@ -103,18 +105,50 @@ def vectorize1(arr):
     doc = 0
     tf_idf= {}
     N = total_docs
-    for i in range(N):    
+    for i in range(N):
         tokens = arr[i]
         counter = Counter(tokens)
         words_count = len(tokens)
-        for token in np.unique(tokens): 
+        for token in np.unique(tokens):
             tf = counter[token]/words_count
             df = doc_freq(token)
-            idf = np.log((N+1)/(df+1)) 
+            idf = np.log((N+1)/(df+1))
             tf_idf[doc, token] = tf*idf
         doc += 1
     print(tf_idf)
-    
-documentA = ['the man went out for a walk walk', 'the children sat around the fire']
 
-vectorize(documentA, 'hello')
+def newVectorizer(arr,query) :
+    data = {}
+    banyakDokumnen = len(arr)
+    for i in range(len(arr)) :
+        content = arr[i].split(" ")
+        for kata in content :
+            if kata not in data:
+                data[kata] = [0] * (banyakDokumnen + 1)
+                data[kata][i] += 1
+            else :
+                data[kata][i] += 1
+    query = query.split(" ")
+    for kata in query :
+        if kata not in data:
+            data[kata] = [0] * (banyakDokumnen + 1)
+            data[kata][banyakDokumnen] += 1
+        else :
+            data[kata][banyakDokumnen] += 1
+    documentVector = [[] for i in range(banyakDokumnen)]
+    queryVector = []
+    for key in data.keys():
+        for i in range(len(data[key])):
+            if i < banyakDokumnen :
+                documentVector[i].append(data[key][i])
+            else :
+                queryVector.append(data[key][i])
+    listKata = data.keys()
+    print(list(listKata))
+    print(documentVector)
+    print(queryVector)
+
+
+documentA = ['the man went out for a walk walk', 'the children sat walk the fire']
+
+newVectorizer(documentA, 'man')
