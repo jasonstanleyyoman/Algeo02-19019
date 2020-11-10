@@ -75,48 +75,6 @@ def vectorize(arr, query):
     print(words)
     return words, quer
 
-def doc_freq(word):
-    c = 0
-    try:
-        c = DF[word]
-    except:
-        pass
-    return c
-
-def vectorize1(arr):
-    total_docs = len(arr)
-
-    # Convert list to dict
-    words_dict = {}
-    for i in range (total_docs):
-        sentence = arr[i]
-        words = sentence.split()
-        for x in words:
-            try :
-                words_dict[x].add(i)
-            except:
-                words_dict[x] = {i}
-
-    # Calculate occurence of every words
-    for i in words_dict:
-        words_dict[i] = len(words_dict[i])
-
-    # Compute TF-IDF
-    doc = 0
-    tf_idf= {}
-    N = total_docs
-    for i in range(N):
-        tokens = arr[i]
-        counter = Counter(tokens)
-        words_count = len(tokens)
-        for token in np.unique(tokens):
-            tf = counter[token]/words_count
-            df = doc_freq(token)
-            idf = np.log((N+1)/(df+1))
-            tf_idf[doc, token] = tf*idf
-        doc += 1
-    print(tf_idf)
-
 def newVectorizer(arr,query) :
     data = {}
     banyakDokumnen = len(arr)
@@ -128,7 +86,7 @@ def newVectorizer(arr,query) :
                 data[kata][i] += 1
             else :
                 data[kata][i] += 1
-    query = query.split(" ")
+    query = query[0].split(" ")
     for kata in query :
         if kata not in data:
             data[kata] = [0] * (banyakDokumnen + 1)
@@ -145,10 +103,55 @@ def newVectorizer(arr,query) :
                 queryVector.append(data[key][i])
     listKata = data.keys()
     print(list(listKata))
-    print(documentVector)
-    print(queryVector)
+    # print(documentVector)
+    # print(queryVector)
+
+    listKata = list(listKata)
+
+    # Compute TF (ratio of every words)
+    tf_document = [[0 for j in range (len(listKata))] for i in range (banyakDokumnen)]
+    tf_query = []
+    for i in range (banyakDokumnen+1):
+        if i < banyakDokumnen:
+            total = sum(documentVector[i])
+        else:
+            total = sum(queryVector)
+        for j in range (len(listKata)):
+            if i < banyakDokumnen:
+                tf_document[i][j] = documentVector[i][j] / total
+            else:
+                tf_query.append(queryVector[j] / total)
+
+    # Compute IDF
+    idf = [0 for i in range (len(listKata))]
+    idf_document = [0 for i in range (len(listKata))]
+    idf_query = [0 for i in range (len(listKata))]
+    for i in range (banyakDokumnen):
+        for j in range (len(listKata)):
+            if documentVector[i][j] != 0:
+                idf[j] += 1
+    
+    for i in range (len(listKata)):
+        idf_document[i] = 1 + math.log(banyakDokumnen / idf[i])
+        if queryVector[i] != 0:
+            idf_query[i] = idf_document[i]
+
+    # Compute TF-IDF
+    tfidf_documents = [[0 for j in range (len(listKata))] for i in range (banyakDokumnen)]
+    tfidf_query = [0 for i in range (len(listKata))]
+    for i in range (banyakDokumnen+1):
+        for j in range (len(listKata)):
+            if i < banyakDokumnen:
+                tfidf_documents[i][j] = tf_document[i][j] * idf_document[j]
+            else:
+                tfidf_query[j] = tf_query[j] * idf_query[j]
+    
+    # print(tfidf_documents)
+    # print()
+    # print(tfidf_query)
+    return 
 
 
-documentA = ['the man went out for a walk walk', 'the children sat walk the fire']
+documentA = ['The game of life is a game of everlasting learning', 'The unexamined life is not worth living', 'Never stop learning']
 
-newVectorizer(documentA, 'man')
+newVectorizer(documentA, 'game game living')
