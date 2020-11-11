@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 from preprocess import process_sentence, preprocess
 from get_15_word import get_first_15_words
-from vectorize import vectorize
+from vectorize import newVectorize
 
 baseURL = "http://127.0.0.1:5000/file/"
 
@@ -46,6 +46,18 @@ def save_data (all_titles) :
 def save_first_15_words (all_first_15_words) :
     with open ("web-scrapping/first_15_word.json", "w") as file :
         json.dump(all_first_15_words,file)
+
+def dot(vector_1, vector_2) :
+    res = 0
+    for i in range(len(vector_1)) :
+        res += vector_1[i] * vector_2[i]
+    return res
+def norm (vector) :
+    res = 0
+    for i in range(len(vector)):
+        res += vector[i] * vector[i]
+    return math.sqrt(res)
+
 def retrieve_information(query):
 
     all_links = load_links()
@@ -56,21 +68,12 @@ def retrieve_information(query):
 
     # Load preprocess numpy array
     cleared_sentence_list = np.load("cleared_sentence.npy")
+    print(len(cleared_sentence_list))
     # Process query
     query = [" ".join(process_sentence(query))]
+    print(query)
 
-    # Init vectorizer
-    vectorizer = TfidfVectorizer()
-    # print(cleared_sentence_list)
-    # print(cleared_sentence_list[0])
-    # x = vectorize(cleared_sentence_list)
-    # x = np.asarray(x)
-    # print(x)
-    # print("---")
-    # x = np.transpose(x.T.toarray())
-    # print(type(x))
-
-    x, q_vec = vectorize(cleared_sentence_list, query)
+    x, q_vec, list_kata = newVectorize(cleared_sentence_list, query)
     print(x)
     print(q_vec)
     # Vectorize query
@@ -94,16 +97,16 @@ def retrieve_information(query):
     ranks = []
 
     # Get ranks
-    for indeks, sim in similarity_sorted:
-        if sim != 0.0 :
-            data = {
-                "title" : all_titles[indeks],
-                "links" : all_links[indeks],
-                "first_15_words" : all_first_15_words[indeks],
-                "similarity" : sim,
-            }
-            ranks.append(data)
-    return ranks
+    # for indeks, sim in similarity_sorted:
+    #     if sim != 0.0 :
+    #         data = {
+    #             "title" : all_titles[indeks],
+    #             "links" : all_links[indeks],
+    #             "first_15_words" : all_first_15_words[indeks],
+    #             "similarity" : sim,
+    #         }
+    #         ranks.append(data)
+    # return ranks
 
 def upload_file (file,filename) :
     if filename.lower().endswith(".pdf"):
