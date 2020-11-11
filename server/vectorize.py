@@ -86,13 +86,13 @@ def newVectorize(arr,query) :
                 data[kata][i] += 1
             else :
                 data[kata][i] += 1
-    query = query[0].split(" ")
-    for kata in query :
-        if kata not in data:
-            data[kata] = [0] * (banyakDokumen + 1)
-            data[kata][banyakDokumen] += 1
-        else :
-            data[kata][banyakDokumen] += 1
+    # query = query[0].split(" ")
+    # for kata in query :
+    #     if kata not in data:
+    #         data[kata] = [0] * (banyakDokumen + 1)
+    #         data[kata][banyakDokumen] += 1
+    #     else :
+    #         data[kata][banyakDokumen] += 1
     documentVector = [[] for i in range(banyakDokumen)]
     queryVector = []
     for key in data.keys():
@@ -110,7 +110,7 @@ def newVectorize(arr,query) :
 
     # Compute TF (ratio of every words)
     tf_document = [[0 for j in range (len(listKata))] for i in range (banyakDokumen)]
-    tf_query = []
+    tf_query = [0 for i in range (len(listKata))]
     # print(documentVector)
     for i in range (banyakDokumen+1):
         if i < banyakDokumen:
@@ -120,9 +120,10 @@ def newVectorize(arr,query) :
         for j in range (len(listKata)):
             if i < banyakDokumen:
                 tf_document[i][j] = documentVector[i][j] / total
-            else:
+            elif total != 0:
                 tf_query.append(queryVector[j] / total)
     # print(tf_document)
+    # print(tf_query)
 
     # Compute IDF
     idf = [0 for i in range (len(listKata))]
@@ -134,7 +135,10 @@ def newVectorize(arr,query) :
                 idf[j] += 1
     # print(idf)
     for i in range (len(listKata)):
-        idf_document[i] = 1 + math.log(banyakDokumen / idf[i])
+        try:
+            idf_document[i] = 1 + math.log(banyakDokumen / idf[i])
+        except:
+            print(listKata[i])
         if queryVector[i] != 0:
             idf_query[i] = idf_document[i]
 
@@ -164,20 +168,23 @@ def norm (vector) :
         res += vector[i] * vector[i]
     return math.sqrt(res)
 
-# if __name__ == "__main__" :
-#     documentA = ['The game of life is a game of everlasting learning', 'The unexamined life is not worth living', 'Never stop learning']
-#
-#     tfidf_documents, tfidf_query, list_kata = newVectorize(documentA, ['The game of life is a game of everlasting'])
-#
-#     similarity = {}
-#     term = {}
-#     for i in range(len(tfidf_documents)) :
-#         similarity[i] = dot(tfidf_documents[i], tfidf_query) / (norm(tfidf_documents[i]) * norm(tfidf_query))
-#     for i in range(len(tfidf_query)) :
-#         if tfidf_query[i] != 0:
-#             term[list_kata[i]] = []
-#             for j in range(len(tfidf_documents)) :
-#                 term[list_kata[i]].append(tfidf_documents[j][i])
-#     for keys in term.keys():
-#         print(keys)
-#         print(term[keys])
+if __name__ == "__main__" :
+    documentA = ['The game of life is a game of everlasting learning', 'The unexamined life is not worth living', 'Never stop learning']
+
+    tfidf_documents, tfidf_query, list_kata = newVectorize(documentA, ['meong'])
+    print(tfidf_documents)
+    print("---")
+    print(tfidf_query)
+
+    # similarity = {}
+    # term = {}
+    # for i in range(len(tfidf_documents)) :
+    #     similarity[i] = dot(tfidf_documents[i], tfidf_query) / (norm(tfidf_documents[i]) * norm(tfidf_query))
+    # for i in range(len(tfidf_query)) :
+    #     if tfidf_query[i] != 0:
+    #         term[list_kata[i]] = []
+    #         for j in range(len(tfidf_documents)) :
+    #             term[list_kata[i]].append(tfidf_documents[j][i])
+    # for keys in term.keys():
+    #     print(keys)
+    #     print(term[keys])
