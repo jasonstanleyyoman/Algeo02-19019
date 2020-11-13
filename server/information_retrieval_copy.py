@@ -1,6 +1,5 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
-import pandas as pd
 import numpy as np
+import math
 import json
 import os
 import pdftotext
@@ -8,7 +7,7 @@ from bs4 import BeautifulSoup
 
 from preprocess import process_sentence, preprocess
 from get_15_word import get_first_15_words
-from vectorize import newVectorize
+from vectorize import vectorizer
 
 baseURL = "http://127.0.0.1:5000/file/"
 
@@ -68,45 +67,42 @@ def retrieve_information(query):
 
     # Load preprocess numpy array
     cleared_sentence_list = np.load("cleared_sentence.npy")
-    print(len(cleared_sentence_list))
+
     # Process query
     query = [" ".join(process_sentence(query))]
-    print(query)
 
-    x, q_vec, list_kata = newVectorize(cleared_sentence_list, query)
-    print(x)
-    print(q_vec)
-    # Vectorize query
-    # q_vec = vectorize(query)
-    # print(vectorizer.transform(query).toarray())
-    # print("------------------------------------------------------")
-    # print(query)
-    # print(vectorizer.transform(query))
-    # print(q_vec)
+
+    tfidf_documents,tfidf_query, list_kata = vectorizer(cleared_sentence_list, query)
 
     similarity = {}
+    term = {}
+    norm_query = norm(tfidf_query)
+    for i in range(len(tfidf_documents)) :
+        norm_document = norm(tfidf_documents[i])
+        if norm_document * norm_query == 0:
+            similarity[i] = 0
+        else :
+            similarity[i] = dot(tfidf_documents[i], tfidf_query) / (norm_document * norm_query)
 
-    # Get cosine similarity
-    # for i in range(len(cleared_sentence_list)):
-    #     if (np.linalg.norm(x[i]) * np.linalg.norm(q_vec)) == 0:
-    #         similarity[i] = 0
-    #     else:
-    #         similarity[i] = np.dot(x[i], q_vec) / (np.linalg.norm(x[i]) * np.linalg.norm(q_vec))
-    # Sort similarity
     similarity_sorted = sorted(similarity.items(), key=lambda x: x[1], reverse=True)
     ranks = []
-
+    term = {}
     # Get ranks
-    # for indeks, sim in similarity_sorted:
-    #     if sim != 0.0 :
-    #         data = {
-    #             "title" : all_titles[indeks],
-    #             "links" : all_links[indeks],
-    #             "first_15_words" : all_first_15_words[indeks],
-    #             "similarity" : sim,
-    #         }
-    #         ranks.append(data)
-    # return ranks
+    for indeks, sim in similarity_sorted:
+        if sim != 0.0 :
+            data = {
+                "title" : all_titles[indeks],
+                "links" : all_links[indeks],
+                "first_15_words" : all_first_15_words[indeks],
+                "similarity" : sim,
+            }
+            ranks.append(data)
+    for i in range(len(tfidf_query)) :
+        if tfidf_query[i] != 0:
+            term[list_kata[i]] = []
+            for j in range(len(tfidf_documents)) :
+                term[list_kata[i]].append(tfidf_documents[j][i])
+    return ranks, term
 
 def upload_file (file,filename) :
     if filename.lower().endswith(".pdf"):
@@ -199,4 +195,8 @@ def upload_file (file,filename) :
 
 if __name__ == "__main__" :
 
-    print(retrieve_information("fullmetal tes"))
+    ranks, term = retrieve_information("gintama fullmetal alchemist")
+
+    for i in range(len(ranks)):
+        print(ranks[i])
+    print(term)
