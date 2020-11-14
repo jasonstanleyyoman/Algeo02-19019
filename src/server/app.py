@@ -1,5 +1,4 @@
 import os
-import numpy as np
 from information_retrieval import retrieve_information, upload_file
 from flask import Flask, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
@@ -8,7 +7,7 @@ from flask_cors import CORS
 import time
 
 # Used for uploading files
-UPLOAD_FOLDER = '../uploads/'
+UPLOAD_FOLDER = '../../test/'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'html'}
 app = Flask(__name__, template_folder = '../templates', static_folder = None)
 CORS(app)
@@ -30,20 +29,18 @@ def show_file(filename):
 def searched(query):
     retrieved = ""
     if request.method == 'GET':
-        retrieved = retrieve_information(query)
-    return {"data" : retrieved} , 200
+        ranks, term, titles = retrieve_information(query)
+    return {"ranks" : ranks, "term" : term, "titles" : titles} , 200
 
 # UPLOAD FILE
 @app.route('/upload', methods=['POST', 'GET'])
 def upload():
-    time.sleep(4)
     print(request.files)
     if request.method == 'POST':
         if 'file' not in request.files:
             print("No file selected")
             return redirect(request.url)
 
-        # uploaded_files = flask.request.files.getlist("file[]")
         file = request.files['file']
         fileToUpload = request.files['file_1']
         if file.filename == '':
@@ -52,7 +49,6 @@ def upload():
 
         if file and allowed_file(file.filename):
             # To get the current timestamp
-
             now = datetime.now()
             filename = secure_filename(file.filename)
             timestamp = datetime.timestamp(now)
@@ -60,17 +56,7 @@ def upload():
 
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], new_name))
-            # if not firstSuccess :
-            #     print("second")
             upload_file(fileToUpload,new_name, file.filename)
-
-            # Rename file name
-            # os.rename(r'../uploads/' + filename, r'../uploads/' + new_name)
-            # if filename in os.path.join(app.config['UPLOAD_FOLDER']):
-            #     try:
-
-            #     except:
-            #         print('Something was wrong')
             return {"message" : "File successfully uploaded!"} , 200
 
 if __name__ == '__main__':

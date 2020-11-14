@@ -24,7 +24,7 @@ def start():
 
             # Get Title
             anime_title = anime_soup.find(class_="title-name h1_bold_none").text
-            data += (anime_title + " ") * 10
+            data += (anime_title + " ") * 20
 
             data += " "
 
@@ -66,7 +66,7 @@ def start():
             all_links.append(anime_link)
             all_data.append(data)
             all_synopsis.append(synoposis)
-            print(data)
+            print(anime_title + " Finished loaded")
 
         except Exception as err:
             print("Error")
@@ -74,7 +74,7 @@ def start():
             print(err)
         i += 1
         # Sementara ambil 9 data dulu
-        if i == 10:
+        if i == 31:
             break
     for title in all_title :
         print(title)

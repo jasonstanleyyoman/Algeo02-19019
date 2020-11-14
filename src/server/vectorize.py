@@ -1,5 +1,18 @@
 import math
 
+# Calculate dot product of 2 vector
+def dot(vector_1, vector_2) :
+    res = 0
+    for i in range(len(vector_1)) :
+        res += vector_1[i] * vector_2[i]
+    return res
+# Calculate norm of vector
+def norm (vector) :
+    res = 0
+    for i in range(len(vector)):
+        res += vector[i] * vector[i]
+    return math.sqrt(res)
+
 # Compute TF
 def ratio(vector, total, dict_length, tf):
     for i in range (dict_length):
@@ -29,9 +42,9 @@ def IDF(dict_length, total_docs, document, query):
         for j in range (dict_length):
             if document[i][j] != 0:
                 idf[j] +=1
-    
+
     for i in range (dict_length):
-        idf_doc[i] = 1 + math.log(total_docs / idf[i])
+        idf_doc[i] = math.log(total_docs / idf[i])
         if query[i] != 0:
             idf_que[i] = idf_doc[i]
     return idf_doc, idf_que
@@ -88,21 +101,10 @@ def vectorizer(arr,query) :
     tfidf_documents, tfidf_query = TF_IDF(len(list_kata), banyak_dokumen, document_vector, query_vector)
 
     return (tfidf_documents,tfidf_query, list(list_kata))
-# Compute Dot
-def dot(vector_1, vector_2) :
-    res = 0
-    for i in range(len(vector_1)) :
-        res += vector_1[i] * vector_2[i]
-    return res
-def norm (vector) :
-    res = 0
-    for i in range(len(vector)):
-        res += vector[i] * vector[i]
-    return math.sqrt(res)
 
 if __name__ == "__main__" :
     documentA = ['The game of life is a game of everlasting learning', 'The unexamined life is not worth living', 'Never stop learning']
-    query = ["hai"]
+    query = ["learning"]
     tfidf_documents, tfidf_query, list_kata = vectorizer(documentA, query)
     print(tfidf_documents)
     print("---")
@@ -126,7 +128,7 @@ if __name__ == "__main__" :
             indeks = list_kata.index(query[i])
             term[query[i]] = []
             for j in range(len(tfidf_documents)) :
-                term[query[i]].append(tfidf_documents[j][i])
+                term[query[i]].append(tfidf_documents[j][indeks])
         else :
             term[query[i]] = [0] * len(tfidf_documents)
 
