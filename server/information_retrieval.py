@@ -69,31 +69,27 @@ def retrieve_information(query):
 
     # Load preprocess numpy array
     cleared_sentence_list = np.load("cleared_sentence.npy")
+
     # Process query
     query = [" ".join(process_sentence(query))]
 
-    # Init vectorizer
-    vectorizer = TfidfVectorizer()
-    x = vectorizer.fit_transform(cleared_sentence_list)
-    x = np.transpose(x.T.toarray())
 
-    # Vectorize query
-    q_vec = vectorizer.transform(query).toarray()[0]
+    tfidf_documents,tfidf_query, list_kata = vectorizer(cleared_sentence_list, query)
 
     similarity = {}
-
-    # Get cosine similarity
-    for i in range(len(cleared_sentence_list)):
-        if (np.linalg.norm(x[i]) * np.linalg.norm(q_vec)) == 0:
+    term = {}
+    norm_query = norm(tfidf_query)
+    for i in range(len(tfidf_documents)) :
+        norm_document = norm(tfidf_documents[i])
+        if norm_document * norm_query == 0:
             similarity[i] = 0
-        else:
-            similarity[i] = np.dot(x[i], q_vec) / (np.linalg.norm(x[i]) * np.linalg.norm(q_vec))
-    # Sort similarity
+        else :
+            similarity[i] = dot(tfidf_documents[i], tfidf_query) / (norm_document * norm_query)
+
     similarity_sorted = sorted(similarity.items(), key=lambda x: x[1], reverse=True)
     ranks = []
-
+    term = {}
     # Get ranks
-    print(similarity_sorted)
     for indeks, sim in similarity_sorted:
         if sim != 0.0 :
             data = {
@@ -104,8 +100,12 @@ def retrieve_information(query):
                 "similarity" : sim,
             }
             ranks.append(data)
-    return ranks
-
+    for i in range(len(tfidf_query)) :
+        if tfidf_query[i] != 0:
+            term[list_kata[i]] = []
+            for j in range(len(tfidf_documents)) :
+                term[list_kata[i]].append(tfidf_documents[j][i])
+    return ranks, term
 def upload_file (file,filename, original_filename) :
     if filename.lower().endswith(".pdf"):
         result = pdftotext.PDF(file)
