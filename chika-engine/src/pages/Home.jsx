@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <div className="App">
-      <div className="container page-size">
+      <div className="container">
         <BackgroundSlider
           images={[image1, image2, image4, image5, image6]}
           duration={15}
@@ -26,29 +26,19 @@ const Home = () => {
 
         <div className="row margin-top-half">
           <div className="col-5 title-bubble">
-            <h1 className="title-app">Chika Engine Alpha Ver</h1>
-            <h3 class="subtitle-app">藤原千花エンジン</h3>
-            <h3 class="slogan-app">for all your anime needs</h3>
-
+            <h1 className="title-app animate__fadeIn">Chika Engine</h1>
+            <h3 class="subtitle-app animate__fadeIn">藤原千花エンジン</h3>
+            <h3 class="slogan-app animate__fadeIn">for all your anime needs</h3>
           </div>
-
         </div>
 
         <div class="row margin-top-bot">
           <div class="col-3"> <AboutUs /> </div>
-          <div class="col"> <UploadDocument /> </div>
+          <div class="col-3"> <UploadDocument /> </div>
+          <div class='col'></div>
         </div>
 
         <SearchBar setKeyword={setKeyword} keyword={keyword} />
-
-      </div>
-
-      <div>
-        <h4>Yuhuuu you found a placeholder, also ignore those brs ehe</h4>
-      </div>
-
-      <div class="d-flex footer justify-content-center">
-        <p>Chika Engine created by someone.</p>
       </div>
     </div>
   );

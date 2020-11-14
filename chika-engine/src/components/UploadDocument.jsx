@@ -15,8 +15,7 @@ function MyVerticallyCenteredModal(props) {
         centered
       >
         <Modal.Body>
-          <h3>Upload your document(s)</h3>
-
+          <h2 class='title-upload'>Upload your document</h2>
           <DragAndDrop />
 
         </Modal.Body>
@@ -31,7 +30,7 @@ function UploadDocument() {
     return (
         <>
         <Button variant="tombol" onClick={() => setModalShow(true)}>
-            UPLOAD DOCUMENT
+            UPLOAD FILE
         </Button>
 
         <MyVerticallyCenteredModal

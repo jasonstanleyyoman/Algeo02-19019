@@ -15,3 +15,19 @@ code {
     monospace;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FCFCFC; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #EBD6D3; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b87986; 
+}

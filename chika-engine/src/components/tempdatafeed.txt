@@ -1,0 +1,67 @@
+{
+	"ranks": [
+    	{
+        	"first_15_words": "\"In order for something to be obtained, something of equal value must be lost.\"Alchemy is...",
+        	"links": "https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood",
+        	"similarity": 0.1317519542298753,
+        	"title": "Fullmetal Alchemist: Brotherhood",
+        	"total_words": 224
+    	},
+    	{
+        	"first_15_words": "After a one-year hiatus, Shinpachi Shimura returns to Edo, only to stumble upon a shocking...",
+        	"links": "https://myanimelist.net/anime/9969/Gintama",
+        	"similarity": 0.06770563424217899,
+        	"title": "Gintama'",
+        	"total_words": 162
+    	},
+    	{
+        	"first_15_words": "While Gintoki Sakata was away, the Yorozuya found themselves a new leader: Kintoki, Gintoki's golden-haired...",
+        	"links": "https://myanimelist.net/anime/15417/Gintama__Enchousen",
+        	"similarity": 0.06418733274163249,
+        	"title": "Gintama': Enchousen",
+        	"total_words": 149
+    	},
+    	{
+        	"first_15_words": "Gintoki, Shinpachi, and Kagura return as the fun-loving but broke members of the Yorozuya team!...",
+        	"links": "https://myanimelist.net/anime/28977/Gintama°",
+        	"similarity": 0.04280011036400621,
+        	"title": "Gintama°",
+        	"total_words": 186
+    	}
+	],
+	"term": {
+    	"fullmet": [
+        	0.037526110062631686,
+        	0,
+        	0,
+        	0,
+        	0,
+        	0,
+        	0,
+        	0,
+        	0
+    	],
+    	"gintama": [
+        	0,
+        	0,
+        	0.021165213151811815,
+        	0,
+        	0,
+        	0.027254705047637794,
+        	0,
+        	0.030103045124337643,
+        	0
+    	]
+	},
+	"titles": [
+    	"Fullmetal Alchemist: Brotherhood",
+    	"Steins;Gate",
+    	"Gintama°",
+    	"Hunter x Hunter (2011)",
+    	"Ginga Eiyuu Densetsu",
+    	"Gintama'",
+    	"Shingeki no Kyojin Season 3 Part 2",
+    	"Gintama': Enchousen",
+    	"3-gatsu no Lion 2nd Season"
+	]
+}
