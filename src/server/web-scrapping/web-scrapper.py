@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 import requests
 import json
+import sys
 from bs4 import BeautifulSoup
-
+TOTAL_ANIME = 10
 def start():
     all_links = []
     all_title = []
@@ -17,7 +18,6 @@ def start():
         try :
             data = ""
             anime_link = link.get("href")
-            print(anime_link)
 
             anime_page = requests.get(anime_link)
             anime_soup = BeautifulSoup(anime_page.content,'html.parser')
@@ -66,18 +66,19 @@ def start():
             all_links.append(anime_link)
             all_data.append(data)
             all_synopsis.append(synoposis)
-            print(anime_title + " Finished loaded")
+            print(anime_title + " Finished fetching")
 
         except Exception as err:
             print("Error")
-            print(link)
-            print(err)
         i += 1
         # Sementara ambil 9 data dulu
-        if i == 31:
+        if i == TOTAL_ANIME + 1:
             break
+    print("--------------------------------------")
+    print("--------------------------------------")
+    print("Finish Fetching this Anime : ")
     for title in all_title :
-        print(title)
+        print("-- " + title)
     with open('titles.json', 'w') as file:
         json.dump(all_title, file)
     with open('links.json', 'w') as file:
@@ -87,4 +88,12 @@ def start():
     with open('synoposis.json', 'w') as file:
         json.dump(all_synopsis, file)
 if __name__ == "__main__" :
-    start()
+    if len(sys.argv) != 2 :
+        print("Usage : python3 web-scrapper.py ${AnimeTotal}")
+    else :
+        try :
+            total_anime = int(sys.argv[1])
+            TOTAL_ANIME = total_anime
+            start()
+        except Exception as err:
+            print("AnimeTotal must be integer")
