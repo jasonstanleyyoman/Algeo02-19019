@@ -6,6 +6,8 @@ import { useHistory } from 'react-router'
 import { useProgressbar } from "../context/ProgressbarContext"
 import './style.css';
 
+import image1 from '../assets/chika-trans.png';
+
 function DragAndDrop() {
     const [files, setFiles] = useState(null);
     const history = useHistory();
@@ -47,19 +49,33 @@ function DragAndDrop() {
         return setFiles(null)
     },[])
 
-    /* Add Display Function (?) I don't know if dragging works
-    but you can click the div to upload it too */
     return (
         <div className="dragndrop__container">
             <div {...getRootProps({className : "dropzone"})}>
                 <input {...getInputProps()}/>
                 {
                     !files ?
-                    <p>Drag 'n' drop some files here, or click to select files</p> :
-                    <div className="File__container">
-                        <p>Filename : {files.name}</p>
+                    <div>
+                        <div class='d-flex row'>
+                            <div class='col-4 no-pad d-flex justify-content-end'>
+                                <img src={image1} class='image1'/>
+                            </div>
+                            <div class='col d-flex justify-content-center align-items-center flex-column'>
+                                <p class='draganddrop'>Drag and drop your files here</p> 
+                                <p class='draganddrop'>or</p>  
+                                <p class='draganddrop'>Click to select files</p>  
+                            </div>
+                        </div> 
+                    </div>:
+                    <div class='d-flex row'>
+                    <div class='col-4 no-pad d-flex justify-content-end'>
+                        <img src={image1} class='image1'/>
+                    </div>
+                    <div className="col File__container d-flex justify-content-center">
+                        <p class='draganddrop'>Filename : {files.name}</p>
 
                     </div>
+                </div> 
 
 
                 }
@@ -69,10 +85,10 @@ function DragAndDrop() {
                 files ?
                 <div className="Button__container">
                     <Button onClick={handleRemove} variant="tombol">
-                        Remove
+                        REMOVE
                     </Button>
                     <Button onClick={handleUpload} variant="tombol">
-                        Upload
+                        UPLOAD FILE
                     </Button>
                 </div> :
                 null

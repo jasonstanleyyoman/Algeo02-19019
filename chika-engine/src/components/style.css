@@ -1,15 +1,32 @@
+/* General */
+* {
+    margin: 0px;
+}
+.container {
+    width: 100%;
+  }
+.row {
+    width: 100%;
+  }
+.col {
+    width: 100%;
+}
 /* Button */
 .btn-tombol {
     background-color: #EBD6D3 !important;
-    padding: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    color : #7E7E7E;
-    font-weight: bold;
+    padding: 0.5rem !important;
+    padding-left: 10% !important; 
+    padding-right: 10% !important;
+    color : #7E7E7E !important;
     border-radius: 0% !important;
-    width: 12.5rem;
+    width: 95%;
   }
-
+/* Modal */
+.bar {
+    background-color: #EBD6D3;
+    width: 100%;
+    display: block;
+}
 /* About Us Modal */
 .modal-body{
     padding: 2.5rem !important;
@@ -28,14 +45,17 @@
     flex-direction: column;
     align-items: center;
 }
+
+/* Upload Document Modal */
+
 .dropzone {
     align-self: stretch;
-    border : 1px solid black;
+    /*border : 1px solid black;*/
     height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(200,200,200,0.3);
+    /*background-color: rgba(200,200,200,0.3);*/
     border : 1px dashed rgba(200,200,200,0.8);
     border-radius: 3px;
 }
@@ -47,14 +67,117 @@
     flex-direction: column;
     align-items: center;
 }
-.File__container p {
-    font-size: 3em;
-    text-align: center;
-}
 .Button__container {
     margin-top: 3%;
     width: 70%;
     display: flex;
     justify-content: space-between;
 
+}
+.draganddrop {
+    font-family: 'Karla';
+    font-size: 25em;
+    font-weight: bolder;
+    color: #EBD6D3;
+}
+.image1 {
+    opacity: 0.6;
+    width: 80%;
+}
+.no-pad{
+    padding:0 !important;
+}
+.no-mar {
+    margin: 0 !important;
+}
+.title-upload {
+    font-family: 'Lato';
+    color: #B87986;
+    font-weight: bolder;
+    font-style: italic;
+}
+/* Sidebar */
+.sidebar {
+    background-color: #B87986;
+    height : 150vh;
+}
+.fit-image {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+}
+.title-sidebar {
+    font-family: 'Lato';
+    font-weight: bolder;
+    font-style: italic;
+    color: #FCFCFC;
+    font-size: 45px;
+}
+.subtitle-sidebar {
+    font-family: 'Lato';
+    font-style: italic;
+    color: #FCFCFC;
+    font-size: 90%;
+}
+
+/* Loading Screen */
+.load {
+    margin-top: 5rem;
+}
+.loading-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.loading-text {
+    font-family: 'Karla';
+    font-weight: bolder;
+    text-align: center;
+    color: #B87986;
+}
+span::before { 
+    content: "Loading assets and datas";
+    animation: animate infinite 5s; 
+    margin : 10px;
+} 
+@keyframes animate { 
+    0% { 
+        content: "Baking cake...er...I mean loading, yeah loading..."; 
+    } 
+    50% { 
+        content: "Load interrupted. Retrying with --prayer..."; 
+    } 
+    100% { 
+        content: "Are we there yet?"; 
+    } 
+} 
+
+/* Feed */
+.feed {
+    background-color: rgba(235, 214, 211, 0.54);
+    padding: 3rem;
+}
+.feed-title {
+    font-family: 'Lato';
+    font-weight: bolder;
+    color: #B87986;
+    font-size: 30%;
+}
+.feed-text {
+    font-family: 'Karla';
+    color: #7E7E7E;
+    font-size: 25%;
+}
+.feed-subtext-title {
+    font-family: 'Karla';
+    font-style: italic;
+    color: #B87986;
+    font-size: 20%;
+}
+.feed-subtext-text {
+    font-family: 'Karla';
+    font-style: italic;
+    color: #7E7E7E;
+    font-size: 20%;
 }

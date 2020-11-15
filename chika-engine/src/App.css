@@ -1,13 +1,15 @@
 /* General */
 * {
-    margin : 0;
-    padding : 0;
+    margin : 0px;
+    padding : 0px;
     box-sizing: border-box;
 }
 .margin-top-half{
   margin-top: 10%;
 }
-
+.container {
+  width: 100%;
+}
 /* Header */
 .page-size{
   height: 100vh;
