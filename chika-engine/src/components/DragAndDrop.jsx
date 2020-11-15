@@ -62,6 +62,7 @@ function DragAndDrop() {
                             </div>
                             <div class='col d-flex justify-content-center align-items-center flex-column'>
                                 <p class='draganddrop'>Drag and drop your files here</p> 
+                                <p class='draganddrop'>(accepted type : .pdf, .txt, .html)</p> 
                                 <p class='draganddrop'>or</p>  
                                 <p class='draganddrop'>Click to select files</p>  
                             </div>
@@ -84,10 +85,10 @@ function DragAndDrop() {
             {
                 files ?
                 <div className="Button__container">
-                    <Button onClick={handleRemove} variant="tombol">
+                    <Button onClick={handleRemove} variant="uploader">
                         REMOVE
                     </Button>
-                    <Button onClick={handleUpload} variant="tombol">
+                    <Button onClick={handleUpload} variant="uploader">
                         UPLOAD FILE
                     </Button>
                 </div> :

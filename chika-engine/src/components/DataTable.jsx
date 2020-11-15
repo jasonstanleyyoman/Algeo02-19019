@@ -1,41 +1,43 @@
-<<<<<<< HEAD
-import React from 'react';
-import Table from '@material-ui/core/Table';
+import React, { useEffect, useState, useStyles } from 'react';
+import { GridOverlay, DataGrid } from '@material-ui/data-grid';
 
 import './style.css';
-  
-const DataTable = ({titles, terms}) => {
-    const Data = new DataTable();
 
-
-    return (
-        <div>{
-/*            Data.Columns.Add('Term');
+const useData = ({titles}, {terms}) => {
+    const [data, setData] = useState({ columns: [], rows: [] });
+    console.log(titles);
     
-        Data.Columns.Add({titles});*/}
+    useEffect(() => {
+    const rows = [];
+    for (let i = 0;i < Object.keys(titles).length; i++) {
+        //rows.push({cellName: terms[i]});
+    }
+
+    const columns = [{ headerName: 'Term' }];  
+    for (let i = 0; i < Object.keys(titles).length; i++) {
+        columns.push({ headerName: titles[i] });
+    }
+  
+    setData({
+        rows,
+        columns,
+      });
+    }, [terms, titles]);
+  
+    return data;
+}
+
+function DataTable(titles, terms) {
+    const data = useData(titles, terms);
+    console.log(data);
+    return (
+        <div>
+            hello
+             {/*<DataGrid columns={data.columns} rows={data.rows} />*/}
         </div>
     );
 };
 
 export default DataTable;
 
-=======
-import React from 'react';
-import Table from '@material-ui/core/Table';
 
-import './style.css';
-  
-const DataTable = ({titles, terms}) => {
-    const Data = new DataTable();
-
-
-    return (
-        Data.Columns.Add('Term');
-    
-        Data.Columns.Add({titles});
-    );
-};
-
-export default DataTable;
-
->>>>>>> 5ac8660f78f95d99ecb50dbaa5dcfcf88601936f

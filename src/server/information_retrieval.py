@@ -85,20 +85,13 @@ def retrieve_information(query):
     # Process query
     query = [" ".join(process_sentence(query))]
 
-<<<<<<< HEAD:server/information_retrieval.py
-
-=======
     # Vectorize query and document
->>>>>>> 5ac8660f78f95d99ecb50dbaa5dcfcf88601936f:src/server/information_retrieval.py
     tfidf_documents,tfidf_query, list_kata = vectorizer(cleared_sentence_list, query)
 
     similarity = {}
     term = {}
     norm_query = norm(tfidf_query)
-<<<<<<< HEAD:server/information_retrieval.py
-=======
     # Calculate similarity
->>>>>>> 5ac8660f78f95d99ecb50dbaa5dcfcf88601936f:src/server/information_retrieval.py
     for i in range(len(tfidf_documents)) :
         norm_document = norm(tfidf_documents[i])
         if norm_document * norm_query == 0:
@@ -120,14 +113,6 @@ def retrieve_information(query):
                 "similarity" : sim,
             }
             ranks.append(data)
-<<<<<<< HEAD:server/information_retrieval.py
-    for i in range(len(tfidf_query)) :
-        if tfidf_query[i] != 0:
-            term[list_kata[i]] = []
-            for j in range(len(tfidf_documents)) :
-                term[list_kata[i]].append(tfidf_documents[j][i])
-    return ranks, term
-=======
     query = query[0].split(" ")
 
     # Calculate term
@@ -140,7 +125,6 @@ def retrieve_information(query):
         else :
             term[query[i]] = [0] * len(tfidf_documents)
     return ranks, term, all_titles
->>>>>>> 5ac8660f78f95d99ecb50dbaa5dcfcf88601936f:src/server/information_retrieval.py
 def upload_file (file,filename, original_filename) :
     if filename.lower().endswith(".pdf"):
         result          = pdftotext.PDF(file)
@@ -221,14 +205,3 @@ def upload_file (file,filename, original_filename) :
         save_total_words(all_total_words)
 
         preprocess()
-<<<<<<< HEAD:server/information_retrieval.py
-
-    #
-
-    # preprocess()
-
-if __name__ == "__main__" :
-
-    print(retrieve_information("monyet"))
-=======
->>>>>>> 5ac8660f78f95d99ecb50dbaa5dcfcf88601936f:src/server/information_retrieval.py

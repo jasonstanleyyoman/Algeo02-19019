@@ -10,7 +10,7 @@ import json
 tokenizer = RegexpTokenizer(r'\w+')
 
 # List stop words
-nltk.download('stopwords')
+#nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 
 # Porter Stemmer untuk stemming

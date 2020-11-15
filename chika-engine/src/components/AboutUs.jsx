@@ -14,14 +14,21 @@ function MyVerticallyCenteredModal(props) {
       >
         <Modal.Body>
           <h3 class="about-us-title">Chika Engine</h3>
-          <h5 class="about-us-jap">藤原千花エンジン</h5>
+          <h5 class="about-us-jap">藤原千花エンジン</h5><br/>
           <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
+          Chika Engine adalah search engine yang dirancang untuk memenuhi salah satu
+          tugas besar mata kuliah di Teknik Informatika, yaitu Aljabar Linear dan Geometri.
+          Search engine yang dirancang menggunakan kalkulasi TF-IDF
+          (Term Frequency-Inverse Document Frequency) dan cosine similarity.
+          Chika Engine dirancang oleh 3 mahasiswa Teknik Informatika angkatan 2019,
+          yaitu Jason Stanley Yoman (13519019), Shaffira Alya Mevia (13519083), dan
+          Cynthia Rusadi (13519118).
           </p>
 
-          <Button onClick={props.onHide}>Close</Button>
+          <h4 class='loading-text'>How to Use</h4>
+          <p>Masukkan query pada search bar kemudian tekan 'Enter'. Atau, bisa juga
+            memasukkan files (.html, .txt, .pdf) terlebih dahulu. </p>
+
         </Modal.Body>
       </Modal>
     );

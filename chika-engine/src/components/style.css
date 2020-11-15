@@ -11,6 +11,9 @@
 .col {
     width: 100%;
 }
+.bs-linebreak {
+    height:10px;
+  }
 /* Button */
 .btn-tombol {
     background-color: #EBD6D3 !important;
@@ -21,6 +24,17 @@
     border-radius: 0% !important;
     width: 95%;
   }
+.btn-uploader {
+    background-color: #EBD6D3 !important;
+    padding: 0.5rem !important;
+    padding-left: 10% !important; 
+    padding-right: 10% !important;
+    color : #7E7E7E !important;
+    border-radius: 0% !important;
+    width: 95%;
+    margin-left: 1em;
+    margin-right: 1em;
+}
 /* Modal */
 .bar {
     background-color: #EBD6D3;
@@ -30,6 +44,7 @@
 /* About Us Modal */
 .modal-body{
     padding: 2.5rem !important;
+    color: #B87986;
 }
 
 .about-us-title{
@@ -39,6 +54,7 @@
 
 .about-us-jap{
     font-style: italic;
+    
 }
 .dragndrop__container {
     display: flex;
@@ -96,10 +112,18 @@
     font-weight: bolder;
     font-style: italic;
 }
+/* Searched Page */
+.wrapper {
+    display: table;
+}
+.cell {
+    display: table-cell;
+}
 /* Sidebar */
 .sidebar {
     background-color: #B87986;
-    height : 150vh;
+    height : 100%;
+    min-height: 100vh;
 }
 .fit-image {
     width: 100%;
@@ -122,13 +146,15 @@
 
 /* Loading Screen */
 .load {
-    margin-top: 5rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
 }
 .loading-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 50%;
 }
 .loading-text {
     font-family: 'Karla';
@@ -136,48 +162,47 @@
     text-align: center;
     color: #B87986;
 }
-span::before { 
-    content: "Loading assets and datas";
-    animation: animate infinite 5s; 
-    margin : 10px;
-} 
-@keyframes animate { 
-    0% { 
-        content: "Baking cake...er...I mean loading, yeah loading..."; 
-    } 
-    50% { 
-        content: "Load interrupted. Retrying with --prayer..."; 
-    } 
-    100% { 
-        content: "Are we there yet?"; 
-    } 
-} 
 
 /* Feed */
+.header {
+    font-weight: bolder;
+    color: #B87986;
+}
 .feed {
     background-color: rgba(235, 214, 211, 0.54);
-    padding: 3rem;
+    padding: 3em;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+a {
+    color: #B87986 !important;
 }
 .feed-title {
     font-family: 'Lato';
     font-weight: bolder;
-    color: #B87986;
-    font-size: 30%;
+    font-size: 2em;
 }
 .feed-text {
     font-family: 'Karla';
     color: #7E7E7E;
-    font-size: 25%;
+    font-size: 1em;
 }
 .feed-subtext-title {
     font-family: 'Karla';
     font-style: italic;
     color: #B87986;
-    font-size: 20%;
+    font-size: 0.9em;
 }
 .feed-subtext-text {
+    background-color: #FCFCFC;
     font-family: 'Karla';
     font-style: italic;
     color: #7E7E7E;
-    font-size: 20%;
+    font-size: 0.9em;
+}
+/* Result */
+.res-text {
+    font-weight: bolder;
+    color: #B87986;
 }
