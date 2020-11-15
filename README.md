@@ -3,23 +3,23 @@
 > [Spesifikasi Tubes](https://drive.google.com/file/d/1YThhhPhrX3xce4vwtH8fGhKR4euv_HSX/view) | [Laporan](https://docs.google.com/document/d/1wVcsBjCHXk4DWX5mus3BnXL9-69UUYrisBg9_Wo6zrI/edit?ts=5f9bc110)
 
 ## Table of contents
-* [General info](#general-info)
+* [Informasi_umum](#informasi-umum)
 * [Screenshots](#screenshots)
-* [Technologies](#technologies)
+* [Teknologi](#teknologi)
 * [Setup](#setup)
-* [Features](#features)
+* [Contoh kode](#contoh-kode)
+* [Fitur](#fitur)
 * [Status](#status)
-* [Inspiration](#inspiration)
-* [Contact](#contact)
+* [Inspirasi](#inspirasi)
+* [Kontak](#kontak)
 
-## General info
+## Informasi Umum
 Chika Engine adalah search engine yang dirancang untuk memenuhi salah satu tugas besar mata kuliah di Teknik Informatika, yaitu Aljabar Linear dan Geometri. Search engine yang dirancang menggunakan kalkulasi TF-IDF (*Term Frequency-Inverse Document Frequency*) dan *cosine similarity*. Chika Engine dirancang oleh 3 mahasiswa Teknik Informatika angkatan 2019, yaitu Jason Stanley Yoman (13519019), Shaffira Alya Mevia (13519083), dan Cynthia Rusadi (13519118).
-Add more general information about project. What the purpose of the project is? Motivation?
 
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
 
-## Technologies
+## Teknologi
 * Tech 1 - version 1.0
 * Tech 2 - version 2.0
 * Tech 3 - version 3.0
@@ -66,8 +66,8 @@ npm install # yarn install jika menggunakan yarn
 npm start
 ```
 
-## Code Examples
-#### Web Scrapping
+## Contoh kode
+#### Web Scraping
 Jika ingin menggunakan web scrapping untuk mengambil data, execute command ini
 ```sh
 python3 src/server/web-scrapping/web-scrapper.py ${JumlahDokumen} # Ganti ${JumlahDokumen} dengan jumlah dokumen yang ingin diambil
@@ -85,13 +85,13 @@ python3 src/server/get_15_word.py
 ```
 **Jika tidak terjadi apa-apa, maka jalankan command dengan menggantikan python3 dengan python atau py**
 
-## Features
-Fitur yang siap digunakan
-List of features ready and TODOs for future development
+## Fitur
+Fitur yang dapat digunakan:
 * Upload dokumen
 * Menggunakan search bar
 * Menampilkan *ranking* dokumen berdasarkan *query*
 * GIF saat *loading*
+* Fujiwara Chika
 
 To-do list:
 - [ ] Web Scraping (?)
@@ -102,8 +102,8 @@ To-do list:
 ## Status
 Project is: _in progress_
 
-## Inspiration
-Add here credits. Project inspired by..., based on...
+## Inspirasi
+Projek ini dirancang untuk memenuhi salah satu tugas besar mata kuliah IF2123 Aljabar Linear dan Geometri.
 
-## Contact
+## Kontak
 Created by [@jasonstanleyyoman](https://github.com/jasonstanleyyoman), [@cyn-rus](https://github.com/cyn-rus), and [@salyamevia](https://github.com/salyamevia).
