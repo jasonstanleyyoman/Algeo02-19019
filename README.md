@@ -20,9 +20,13 @@ Chika Engine adalah search engine yang dirancang untuk memenuhi salah satu tugas
 ![Example screenshot](./img/screenshot.png)
 
 ## Teknologi
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+* Bootstrap
+* Node
+* NPM
+* Python
+* BeautifulSoup
+* NLTK
+* Numpy
 
 ## Setup
 Clone repository 
