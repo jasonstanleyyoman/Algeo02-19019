@@ -51,8 +51,8 @@ cd src/server
 python3 app.py
 ```
 <br/>
-**Jika tidak terjadi apa-apa saat menggunakan python3, maka jalankan command dengan menggunakan python atau py**
-<br/>
+
+**Jika tidak terjadi apa-apa, maka jalankan command dengan menggantikan python3 dengan python atau py**
 ##### Frontend
 Pengguna diharapkan sudah menginstall nodejs dan package manager (npm atau yarn) di mesinnya. Jika belum silahkan kunjungi laman berikut untuk panduan instalasinya
 
@@ -77,19 +77,21 @@ Contoh :
 python3 src/server/web-scrapping/web-scrapper.py 30
 ```
 
-Setelah itu jalankan command ini untuk memproses data yang diambil
+Setelah itu jalankan command di bawah untuk memproses data yang diambil
 ```sh
 python3 src/server/preprocess.py
 python3 src/server/total_words.py
 python3 src/server/get_15_word.py
 ```
-**Jika tidak terjadi apa-apa saat menggunakan python3, maka jalankan command dengan menggunakan python atau py**
+**Jika tidak terjadi apa-apa, maka jalankan command dengan menggantikan python3 dengan python atau py**
 
 ## Features
+Fitur yang siap digunakan
 List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* Upload dokumen
+* Menggunakan search bar
+* Menampilkan *ranking* dokumen berdasarkan *query*
+* GIF saat *loading*
 
 To-do list:
 - [ ] Web Scraping (?)
@@ -104,4 +106,4 @@ Project is: _in progress_
 Add here credits. Project inspired by..., based on...
 
 ## Contact
-Created by [@jasonstanleyyoman](), [@cyn-rus](), and [@salyamevia]().
+Created by [@jasonstanleyyoman](https://github.com/jasonstanleyyoman), [@cyn-rus](https://github.com/cyn-rus), and [@salyamevia](https://github.com/salyamevia).
