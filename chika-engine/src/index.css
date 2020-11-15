@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Main */
 body {
   margin: 0;
@@ -31,3 +32,38 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #b87986; 
 }
+=======
+/* Main */
+body {
+  margin: 0;
+  font-family: 'Karla' !important;
+  color: #7E7E7E !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FCFCFC;
+  background-image: url("assets/pattern.png");
+  background-repeat: repeat;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FCFCFC; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #EBD6D3; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b87986; 
+}
+>>>>>>> 5ac8660f78f95d99ecb50dbaa5dcfcf88601936f

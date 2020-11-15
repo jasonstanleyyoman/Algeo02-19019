@@ -37,3 +37,5 @@ def preprocess() :
         cleared_sentence_list = [" ".join(process_sentence(sentence)) for sentence in all_sentence_list]
 
         np.save("cleared_sentence",cleared_sentence_list)
+if __name__ == "__main__":
+    preprocess()
