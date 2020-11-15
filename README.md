@@ -46,11 +46,11 @@ Setelah itu install dependencies pythonnya dengan cara yang disesuaikan dengan s
 <br/>
 Jalankan backend dengan menggunakan command ini
 <br/>
+
 ```sh
 cd src/server
 python3 app.py
 ```
-<br/>
 
 **Jika tidak terjadi apa-apa, maka jalankan command dengan menggantikan python3 dengan python atau py**
 ##### Frontend
