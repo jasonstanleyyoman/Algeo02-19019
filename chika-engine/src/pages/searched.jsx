@@ -28,7 +28,7 @@ const Searched = ({match}) => {
             })
             .then(response => {
                 console.log(response.data);
-                setFeeds(response.data.data);
+                setFeeds(response.data.ranks);
                 setLoading(false);
             })
             .catch((err) => {
@@ -46,7 +46,7 @@ const Searched = ({match}) => {
                     <div class='container'>
                         <img src ={image} class='img-fluid self-align-center loading-img'/>
                             <div class='loading-text'><h1><span></span></h1></div>
-                        
+
                     </div>)
     } else {
         if (feeds.length === 0) {
@@ -75,7 +75,7 @@ const Searched = ({match}) => {
                 <div class='col-4 no-pad'>
                     <Sidebar />
                 </div>
-                <div class='col d-flex load'>
+                <div class='col-2 d-flex load'>
                     {component}
                 </div>
             </div>
