@@ -13,6 +13,7 @@
 * [Contact](#contact)
 
 ## General info
+Chika Engine adalah search engine yang dirancang untuk memenuhi salah satu tugas besar mata kuliah di Teknik Informatika, yaitu Aljabar Linear dan Geometri. Search engine yang dirancang menggunakan kalkulasi TF-IDF (*Term Frequency-Inverse Document Frequency*) dan *cosine similarity*. Chika Engine dirancang oleh 3 mahasiswa Teknik Informatika angkatan 2019, yaitu Jason Stanley Yoman (13519019), Shaffira Alya Mevia (13519083), dan Cynthia Rusadi (13519118).
 Add more general information about project. What the purpose of the project is? Motivation?
 
 ## Screenshots
@@ -50,6 +51,8 @@ cd src/server
 python3 app.py
 ```
 <br/>
+**Jika tidak terjadi apa-apa saat menggunakan python3, maka jalankan command dengan menggunakan python atau py**
+<br/>
 ##### Frontend
 Pengguna diharapkan sudah menginstall nodejs dan package manager (npm atau yarn) di mesinnya. Jika belum silahkan kunjungi laman berikut untuk panduan instalasinya
 
@@ -80,6 +83,7 @@ python3 src/server/preprocess.py
 python3 src/server/total_words.py
 python3 src/server/get_15_word.py
 ```
+**Jika tidak terjadi apa-apa saat menggunakan python3, maka jalankan command dengan menggunakan python atau py**
 
 ## Features
 List of features ready and TODOs for future development
