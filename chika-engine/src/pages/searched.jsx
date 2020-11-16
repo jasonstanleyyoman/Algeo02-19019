@@ -16,6 +16,7 @@ const Searched = ({match}) => {
     const [feeds, setFeeds] = useState([]);
     const [titles, setTitles] = useState([]);
     const [terms, setTerms] = useState([]);
+    const [result, setResult] = useState([]);
     const [query, setQuerty] = useState(match.params.query);
     const [keyword, setKeyword] = useState("");
 
@@ -34,6 +35,7 @@ const Searched = ({match}) => {
                 console.log(response.data);
                 console.log(response.data.titles);
                 console.log(response.data.term);
+                setResult(response.data);
                 setFeeds(response.data.ranks);
                 setTitles(response.data.titles);
                 setTerms(response.data.term);
@@ -77,6 +79,7 @@ const Searched = ({match}) => {
         }
     }
 
+    console.log(result);
     return(
         <div class='container no-mar no-pad'>
             <div class='row wrapper'>

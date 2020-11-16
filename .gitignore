@@ -4,4 +4,4 @@ env
 venv/
 test_upload/
 chika-engine/node_modules
-node_modules/
+node_modules
