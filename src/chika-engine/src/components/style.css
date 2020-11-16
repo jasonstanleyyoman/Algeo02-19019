@@ -296,6 +296,7 @@ a {
 .res-text {
     font-weight: bolder;
     color: #B87986;
+
 }
 .res-feed {
     background-color: rgba(235, 214, 211, 0.54);
@@ -303,4 +304,5 @@ a {
     margin-top: 1rem;
     width: 100%;
     margin-bottom: 1em;
+    cursor : pointer;
 }

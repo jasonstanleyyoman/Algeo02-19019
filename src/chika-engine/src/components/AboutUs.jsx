@@ -34,7 +34,8 @@ function MyVerticallyCenteredModal(props) {
           <div className="pembatas"></div>
               <h4 class='loading-text'>How to Use</h4>
               <p>Masukkan query pada search bar kemudian tekan 'Enter'. Atau, bisa juga
-                memasukkan files (.html, .txt, .pdf) terlebih dahulu. </p>
+                memasukkan files (.html, .txt, .pdf) terlebih dahulu.
+                Tekan Search Results Detail untuk melihat tabel</p>
             <div className="pembatas"></div>
           <h1>About Us</h1>
           <div className="aboutus__container">
