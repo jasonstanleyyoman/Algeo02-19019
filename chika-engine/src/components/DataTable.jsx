@@ -1,43 +1,85 @@
-import React, { useEffect, useState, useStyles } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GridOverlay, DataGrid } from '@material-ui/data-grid';
-
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import './style.css';
 
-const useData = ({titles}, {terms}) => {
-    const [data, setData] = useState({ columns: [], rows: [] });
-    console.log(titles);
-    
-    useEffect(() => {
-    const rows = [];
-    for (let i = 0;i < Object.keys(titles).length; i++) {
-        //rows.push({cellName: terms[i]});
-    }
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
 
-    const columns = [{ headerName: 'Term' }];  
-    for (let i = 0; i < Object.keys(titles).length; i++) {
+const useData = (titles, terms) => {
+    var columns = []
+    var rows = []
+
+
+
+
+    const termKeys = Object.keys(terms)
+    for (let i = 0;i < termKeys.length; i++) {
+        const row = {}
+        row.cellName = termKeys[i]
+        row.row = terms[termKeys[i]]
+
+        rows.push(row);
+    }
+    console.log("rows", rows)
+
+    columns = [{ headerName: 'Term' }];
+    for (let i = 0; i < titles.length; i++) {
         columns.push({ headerName: titles[i] });
     }
-  
-    setData({
-        rows,
-        columns,
-      });
-    }, [terms, titles]);
-  
-    return data;
+    console.log("columns", columns)
+
+
+    return [columns,rows];
 }
 
-function DataTable(titles, terms) {
-    const data = useData(titles, terms);
-    console.log(data);
+function DataTable({titles, terms}) {
+    const [columns, rows] = useData(titles, terms);
+    const classes = useStyles();
+    // console.log(data);
     return (
         <div>
-            hello
-             {/*<DataGrid columns={data.columns} rows={data.rows} />*/}
+
+             <TableContainer component={Paper}>
+                 <Table className={classes.table}>
+                     <TableHead>
+                         <TableRow>
+                             {columns.map(col =>
+                                 <TableCell component="th" scope="row">
+                                     {col.headerName}
+                                 </TableCell>)}
+                         </TableRow>
+                     </TableHead>
+                     <TableBody>
+
+                             {rows.map(row => {
+                                 let dataRow = row.row.map(r => <TableCell component="th" scope="row">{r}</TableCell>)
+                                 let component = (
+                                     <TableRow>
+                                         <TableCell component="th" scope="row">{row.cellName}</TableCell>
+                                         {dataRow}
+                                     </TableRow>
+
+                                 )
+
+                                 return component
+                             })}
+
+                     </TableBody>
+                 </Table>
+             </TableContainer>
         </div>
     );
 };
 
 export default DataTable;
-
-
