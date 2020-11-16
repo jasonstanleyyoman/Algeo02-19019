@@ -82,10 +82,11 @@ const Searched = ({match}) => {
                 <div class='col-4 no-pad cell'>
                     <Sidebar />
                 </div>
-                <div class='col-6 d-flex load cell'>
+                <div class='col-7 d-flex cell'>
                     <div class='col'>
                         {component}
-                        <Collapsible trigger='Search Result Details' classParentString='feed' className='res-text' openedClassName='res-text'>
+                        <Collapsible trigger='Search Result Details' classParentString='res-feed' className='res-text' openedClassName='res-text'>
+                            <br></br>
                             <DataTable titles={titles} terms={terms}/>
                         </Collapsible>
                     </div>

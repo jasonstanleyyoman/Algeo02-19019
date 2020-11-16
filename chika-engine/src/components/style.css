@@ -115,6 +115,7 @@
 /* Searched Page */
 .wrapper {
     display: table;
+    width: 100%;
 }
 .cell {
     display: table-cell;
@@ -146,9 +147,7 @@
 
 /* Loading Screen */
 .load {
-    margin-top: 1rem;
-    margin-left: 2rem;
-    margin-bottom: 2rem;
+    margin: 1rem;
 }
 .loading-img {
     display: block;
@@ -205,4 +204,11 @@ a {
 .res-text {
     font-weight: bolder;
     color: #B87986;
+}
+.res-feed {
+    background-color: rgba(235, 214, 211, 0.54);
+    padding: 3em;
+    margin-top: 1rem;
+    width: 100%;
+    margin-bottom: 1em;
 }
