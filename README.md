@@ -17,11 +17,11 @@
 Chika Engine adalah search engine yang dirancang untuk memenuhi salah satu tugas besar mata kuliah di Teknik Informatika, yaitu Aljabar Linear dan Geometri. Search engine yang dirancang menggunakan kalkulasi TF-IDF (*Term Frequency-Inverse Document Frequency*) dan *cosine similarity*. Chika Engine dirancang oleh 3 mahasiswa Teknik Informatika angkatan 2019, yaitu Jason Stanley Yoman (13519019), Shaffira Alya Mevia (13519083), dan Cynthia Rusadi (13519118).
 
 ## Screenshots
-![Landing Page Chika Engine](./doc/assets/chikaengine-1.jpg)
+![Landing Page Chika Engine](https://github.com/jasonstanleyyoman/Algeo02-19019/blob/main/docs/assets/chikaengine-1.jpg)
 Landing Page Chika Engine
-![Upload Dokumen](./doc/assets/chikaengine-3.jpg)
+![Upload Dokumen](https://github.com/jasonstanleyyoman/Algeo02-19019/blob/main/docs/assets/chikaengine-3.jpg)
 Upload Dokumen
-![Search Feed](./doc/assets/chikaengine-5.jpg)
+![Search Feed](https://github.com/jasonstanleyyoman/Algeo02-19019/blob/main/docs/assets/chikaengine-5.jpg)
 
 ## Teknologi
 * Bootstrap
