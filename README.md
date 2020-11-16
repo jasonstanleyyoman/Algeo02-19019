@@ -58,7 +58,9 @@ Setelah itu install dependencies pythonnya dengan cara yang disesuaikan dengan s
 - [BeautifulSoup4](https://pypi.org/project/beautifulsoup4/)
 - [nltk](https://www.nltk.org/install.html)
 Setalah menginstall nltk, Anda perlu menginstall beberapa package stopwords dan punkt di nltk.
+
 <br/>
+
 --- Masuk ke Interpreter python Anda. Bisa menggunakan salah satu dari command ini :
 ```sh
 python3
