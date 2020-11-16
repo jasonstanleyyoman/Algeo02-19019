@@ -44,6 +44,7 @@ Setelah itu install dependencies pythonnya dengan cara yang disesuaikan dengan s
 - [BeautifulSoup4](https://pypi.org/project/beautifulsoup4/)
 - [nltk](https://www.nltk.org/install.html)
 Setalah menginstall nltk, Anda perlu menginstall beberapa package stopwords dan punkt di nltk.
+<br/>
 --- Masuk ke Interpreter python Anda. Bisa menggunakan salah satu dari command ini :
 ```sh
 python3
@@ -60,7 +61,7 @@ py.exe
 >>> nltk.download()
 ```
 Jika Anda dihadapkan dengan GUI untuk download serperti dibawah ini, cari package bernama stopwords dan punkt dan lakukan download
-
+![nltk-gui](https://github.com/jasonstanleyyoman/Algeo02-19019/blob/main/src/img/nltk-gui.png?raw=true)
 Jika tidak, jalankan command ini
 ```python
 >>> d punkt
