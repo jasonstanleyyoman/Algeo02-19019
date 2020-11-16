@@ -18,13 +18,19 @@ Chika Engine adalah search engine yang dirancang untuk memenuhi salah satu tugas
 
 ## Screenshots
 ![Landing Page Chika Engine](https://github.com/jasonstanleyyoman/Algeo02-19019/blob/main/docs/assets/chikaengine-1.jpg)
-**Gambar 1** *Landing Page* Chika Engine
+<p align="center">
+  Landing Page Chika Engine
+</p>
 
 ![Upload Dokumen](https://github.com/jasonstanleyyoman/Algeo02-19019/blob/main/docs/assets/chikaengine-3.jpg)
-**Gambar 2** Modal untuk Upload Dokumen
+<p align="center">
+  Upload Dokumen
+</p>
 
 ![Search Feed](https://github.com/jasonstanleyyoman/Algeo02-19019/blob/main/docs/assets/chikaengine-5.jpg)
-**Gambar 3** Hasil dari pencarian di *Search Feed*
+<p align="center">
+  Search Feed
+</p>
 
 ## Teknologi
 * Bootstrap
