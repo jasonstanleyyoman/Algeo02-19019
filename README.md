@@ -1,9 +1,9 @@
 # Chika Engine 
-> A search engine for searching the latest informations for anime, manga, and so on.\
+> A search engine for searching your favorite anime, manga, and such with a twist.\
 > [Spesifikasi Tubes](https://drive.google.com/file/d/1YThhhPhrX3xce4vwtH8fGhKR4euv_HSX/view) | [Laporan](https://docs.google.com/document/d/1wVcsBjCHXk4DWX5mus3BnXL9-69UUYrisBg9_Wo6zrI/edit?ts=5f9bc110)
 
-## Table of contents
-* [Informasi_umum](#informasi-umum)
+## Table of Contents
+* [Informasi_Umum](#informasi-umum)
 * [Screenshots](#screenshots)
 * [Teknologi](#teknologi)
 * [Setup](#setup)
@@ -142,7 +142,7 @@ Fitur yang dapat digunakan:
 * Fujiwara Chika
 
 ## Status
-Project is: _in progress_
+Project is: _finished_
 
 ## Inspirasi
 Projek ini dirancang untuk memenuhi salah satu tugas besar mata kuliah IF2123 Aljabar Linear dan Geometri.
