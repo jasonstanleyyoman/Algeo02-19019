@@ -38,7 +38,6 @@ function DragAndDrop() {
 			}
         })
         .then((data)=>{
-          console.log(data.data);
           history.go(0);
         })
 

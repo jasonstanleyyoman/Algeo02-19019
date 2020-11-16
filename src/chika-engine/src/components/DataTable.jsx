@@ -30,13 +30,11 @@ const useData = (titles, terms) => {
 
         rows.push(row);
     }
-    console.log("rows", rows)
 
     columns = [{ headerName: 'Term' }];
     for (let i = 0; i < titles.length; i++) {
         columns.push({ headerName: titles[i] });
     }
-    console.log("columns", columns)
 
 
     return [columns,rows];
@@ -45,7 +43,6 @@ const useData = (titles, terms) => {
 function DataTable({titles, terms}) {
     const [columns, rows] = useData(titles, terms);
     const classes = useStyles();
-    // console.log(data);
     return (
         <div>
 
@@ -53,8 +50,8 @@ function DataTable({titles, terms}) {
                  <Table className={classes.table}>
                      <TableHead>
                          <TableRow>
-                             {columns.map(col =>
-                                 <TableCell component="th" scope="row">
+                             {columns.map((col,i) =>
+                                 <TableCell component="th" scope="row" key={i}>
                                      {col.headerName}
                                  </TableCell>)}
                          </TableRow>
@@ -62,7 +59,7 @@ function DataTable({titles, terms}) {
                      <TableBody>
 
                              {rows.map(row => {
-                                 let dataRow = row.row.map(r => <TableCell component="th" scope="row">{r}</TableCell>)
+                                 let dataRow = row.row.map((r,i) => <TableCell component="th" scope="row" key={i}>{r}</TableCell>)
                                  let component = (
                                      <TableRow>
                                          <TableCell component="th" scope="row">{row.cellName}</TableCell>

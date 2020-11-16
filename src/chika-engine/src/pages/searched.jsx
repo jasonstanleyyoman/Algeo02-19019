@@ -15,7 +15,6 @@ const Searched = ({match}) => {
     const [feeds, setFeeds] = useState([]);
     const [titles, setTitles] = useState([]);
     const [terms, setTerms] = useState([]);
-    const [result] = useState([]);
     const [query] = useState(match.params.query);
 
 
@@ -37,31 +36,31 @@ const Searched = ({match}) => {
                 setLoading(false);
             })
             .catch((err) => {
-                console.log(err)
+
             })
     }
 
     useEffect(() => {
         showResult();
-    });
+    },[]);
 
     let component = ""
     if (isLoading) {
         component = (
-                    <div class='feed'>
-                        <img src ={image2} class='img-fluid self-align-center loading-img' alt="test"/>
-                        <div class='m-4'></div>
-                        <p class='loading-text'>
+                    <div className='feed'>
+                        <img src ={image2} className='img-fluid self-align-center loading-img' alt="test"/>
+                        <div className='m-4'></div>
+                        <p className='loading-text'>
                             Waiting for Kaguya, ettou...<br/>
                             I mean loading, yeah loading...</p>
                     </div>)
     } else {
         if (feeds.length === 0) {
             component = (
-                        <div class='col feed'>
-                            <img src ={image1} class='img-fluid self-align-center loading-img' alt="test"/>
-                            <div class='m-4'></div>
-                            <p class='loading-text'>
+                        <div className='col feed'>
+                            <img src ={image1} className='img-fluid self-align-center loading-img' alt="test"/>
+                            <div className='m-4'></div>
+                            <p className='loading-text'>
                                 Bummer, no data found.<br/>
                                 Try searching other things.</p>
                         </div>)
@@ -74,15 +73,15 @@ const Searched = ({match}) => {
         }
     }
 
-    console.log(result);
+
     return(
-        <div class='container no-mar no-pad'>
-            <div class='row wrapper'>
-                <div class='col-4 no-pad cell'>
+        <div className='container no-mar no-pad'>
+            <div className='row wrapper'>
+                <div className='col-4 no-pad cell'>
                     <Sidebar />
                 </div>
-                <div class='col-7 d-flex cell'>
-                    <div class='col'>
+                <div className='col-7 d-flex cell'>
+                    <div className='col'>
                         {component}
                         <Collapsible trigger='Search Result Details' classParentString='res-feed' className='res-text' openedClassName='res-text'>
                             <br></br>
