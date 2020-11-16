@@ -34,7 +34,7 @@ Upload Dokumen
 * ReactJS
 
 ## Setup
-Clone repository 
+Clone repository
 ```sh
 git clone https://github.com/jasonstanleyyoman/Algeo02-19019.git
 ```
@@ -126,7 +126,7 @@ Fitur yang dapat digunakan:
 * Fujiwara Chika
 
 To-do list:
-- [x] Web Scraping 
+- [x] Web Scraping
 - [x] Backend
 - [x] Frontend
 

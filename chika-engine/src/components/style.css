@@ -2,6 +2,7 @@
 * {
     margin: 0px;
 }
+
 .container {
     width: 100%;
   }
@@ -18,7 +19,7 @@
 .btn-tombol {
     background-color: #EBD6D3 !important;
     padding: 0.5rem !important;
-    padding-left: 10% !important; 
+    padding-left: 10% !important;
     padding-right: 10% !important;
     color : #7E7E7E !important;
     border-radius: 0% !important;
@@ -27,7 +28,7 @@
 .btn-uploader {
     background-color: #EBD6D3 !important;
     padding: 0.5rem !important;
-    padding-left: 10% !important; 
+    padding-left: 10% !important;
     padding-right: 10% !important;
     color : #7E7E7E !important;
     border-radius: 0% !important;
@@ -51,10 +52,85 @@
     font-family: 'Lato Black';
     font-size : 4em;
 }
+.modal-dialog-centered {
 
+}
+.modal-content {
+    padding : 20px 0;
+}
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: scroll;
+}
+.modal-body::-webkit-scrollbar {
+  display: none;
+}
+.modal-body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.modal-body .pembatas {
+    width: 100%;
+    background-color: #EBD6D3;
+    margin : 10px 0;
+    padding : 1px;
+    display: inline-block;
+}
+.modal-body .pembatas:last-child {
+    margin : 20px 0;
+}
+.modal-body svg {
+    position: absolute;
+    right: 2.5rem;
+    top:2.5rem;
+    font-size: 35px;
+    cursor : pointer;
+}
+.search__engine {
+
+}
+.aboutus__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin : 20px 0;
+}
+.aboutus__container {
+
+}
+.aboutus__container h4 {
+    font-weight: bold;
+}
+.social {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.social__icon {
+    display: flex;
+    align-items: center;
+    margin : 5px 0;
+}
+.social__icon > * {
+    margin : 0 10px;
+}
+.social svg {
+    position: relative;
+    right: initial;
+    top : initial;
+    transition: 0.5s ease;
+}
+.social svg:hover {
+    transform: translateY(-5px);
+}
 .about-us-jap{
     font-style: italic;
-    
+
 }
 .dragndrop__container {
     display: flex;
@@ -160,6 +236,22 @@
     font-weight: bolder;
     text-align: center;
     color: #B87986;
+}
+.loading-text span::before {
+    content: "Loading assets and datas";
+    animation: animate infinite 5s;
+    margin : 10px;
+}
+@keyframes animate {
+    0% {
+        content: "Baking cake...er...I mean loading, yeah loading...";
+    }
+    50% {
+        content: "Load interrupted. Retrying with --prayer...";
+    }
+    100% {
+        content: "Are we there yet?";
+    }
 }
 
 /* Feed */
