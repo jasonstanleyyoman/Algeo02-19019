@@ -129,12 +129,6 @@ Fitur yang dapat digunakan:
 * GIF saat *loading*
 * Fujiwara Chika
 
-To-do list:
-- [ ] Web Scraping (?)
-- [ ] Backend (?)
-- [ ] Frontend (?)
-
-
 ## Status
 Project is: _in progress_
 
