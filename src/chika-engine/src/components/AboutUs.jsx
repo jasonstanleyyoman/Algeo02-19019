@@ -30,8 +30,12 @@ function MyVerticallyCenteredModal(props) {
               yaitu Jason Stanley Yoman (13519019), Shaffira Alya Mevia (13519083), dan
               Cynthia Rusadi (13519118).
           </p>
-          </p>
+
           <div className="pembatas"></div>
+              <h4 class='loading-text'>How to Use</h4>
+              <p>Masukkan query pada search bar kemudian tekan 'Enter'. Atau, bisa juga
+                memasukkan files (.html, .txt, .pdf) terlebih dahulu. </p>
+            <div className="pembatas"></div>
           <h1>About Us</h1>
           <div className="aboutus__container">
               <h4>Jason Stanley Yoman</h4>
@@ -100,9 +104,7 @@ function MyVerticallyCenteredModal(props) {
           </div>
           <div className="pembatas"></div>
 
-          <h4 class='loading-text'>How to Use</h4>
-          <p>Masukkan query pada search bar kemudian tekan 'Enter'. Atau, bisa juga
-            memasukkan files (.html, .txt, .pdf) terlebih dahulu. </p>
+
 
         </Modal.Body>
       </Modal>

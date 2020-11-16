@@ -5,7 +5,6 @@ import Collapsible from 'react-collapsible';
 import Feed from '../components/Feed';
 import Sidebar from '../components/Sidebar';
 import '../components/style.css';
-import CollapseDiv from '../components/CollapseDiv';
 
 import image1 from '../assets/chika-gif1.gif';
 import image2 from '../assets/chika-gif2.gif';
@@ -16,9 +15,9 @@ const Searched = ({match}) => {
     const [feeds, setFeeds] = useState([]);
     const [titles, setTitles] = useState([]);
     const [terms, setTerms] = useState([]);
-    const [result, setResult] = useState([]);
-    const [query, setQuerty] = useState(match.params.query);
-    const [keyword, setKeyword] = useState("");
+    const [result] = useState([]);
+    const [query] = useState(match.params.query);
+
 
     const showResult = async () => {
             axios({
@@ -44,13 +43,13 @@ const Searched = ({match}) => {
 
     useEffect(() => {
         showResult();
-    }, []);
+    });
 
     let component = ""
     if (isLoading) {
         component = (
                     <div class='feed'>
-                        <img src ={image2} class='img-fluid self-align-center loading-img'/>
+                        <img src ={image2} class='img-fluid self-align-center loading-img' alt="test"/>
                         <div class='m-4'></div>
                         <p class='loading-text'>
                             Waiting for Kaguya, ettou...<br/>
@@ -60,7 +59,7 @@ const Searched = ({match}) => {
         if (feeds.length === 0) {
             component = (
                         <div class='col feed'>
-                            <img src ={image1} class='img-fluid self-align-center loading-img'/>
+                            <img src ={image1} class='img-fluid self-align-center loading-img' alt="test"/>
                             <div class='m-4'></div>
                             <p class='loading-text'>
                                 Bummer, no data found.<br/>

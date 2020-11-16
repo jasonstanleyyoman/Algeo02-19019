@@ -1,5 +1,5 @@
 import React  from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const BarStyling = {width:"70rem",background:"RGBA(255,255,255,0.8)", border:"none", padding:"1.5rem"};
 
@@ -15,8 +15,8 @@ const SearchBar = ({keyword,setKeyword}) => {
       }
   }
 
-  return ( 
-    <input 
+  return (
+    <input
      style={BarStyling}
      key="random1"
      value={keyword}

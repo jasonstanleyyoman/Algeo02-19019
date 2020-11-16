@@ -36,8 +36,8 @@ function DragAndDrop() {
             onUploadProgress: (ProgressEvent) => {
 				progressbar.setValue((ProgressEvent.loaded / ProgressEvent.total) * 100);
 			}
-        }).
-        then((data)=>{
+        })
+        .then((data)=>{
           console.log(data.data);
           history.go(0);
         })
@@ -58,25 +58,25 @@ function DragAndDrop() {
                     <div>
                         <div class='d-flex row'>
                             <div class='col-4 no-pad d-flex justify-content-end'>
-                                <img src={image1} class='image1'/>
+                                <img src={image1} class='image1' alt="upload"/>
                             </div>
                             <div class='col d-flex justify-content-center align-items-center flex-column'>
-                                <p class='draganddrop'>Drag and drop your files here</p> 
-                                <p class='draganddrop'>(accepted type : .pdf, .txt, .html)</p> 
-                                <p class='draganddrop'>or</p>  
-                                <p class='draganddrop'>Click to select files</p>  
+                                <p class='draganddrop'>Drag and drop your files here</p>
+                                <p class='draganddrop'>(accepted type : .pdf, .txt, .html)</p>
+                                <p class='draganddrop'>or</p>
+                                <p class='draganddrop'>Click to select files</p>
                             </div>
-                        </div> 
+                        </div>
                     </div>:
                     <div class='d-flex row'>
                     <div class='col-4 no-pad d-flex justify-content-end'>
-                        <img src={image1} class='image1'/>
+                        <img src={image1} class='image1' alt="apa"/>
                     </div>
                     <div className="col File__container d-flex justify-content-center">
                         <p class='draganddrop'>Filename : {files.name}</p>
 
                     </div>
-                </div> 
+                </div>
 
 
                 }

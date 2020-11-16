@@ -9,10 +9,10 @@ import image1 from '../assets/chika-sidenav.jpg';
 function Sidebar() {
     const history = useHistory();
     const GoHome = () => history.push('/');
-    
+
     return (
         <div class='sidebar'>
-            <img src={image1} class='w-100 fit-image img-fluid' onClick={GoHome}/>
+            <img src={image1} class='w-100 fit-image img-fluid' onClick={GoHome} alt="gatau"/>
             <div class='row container d-flex justify-content-center m-1'>
                 <h1 className="title-sidebar">Chika Engine</h1>
             </div>
@@ -27,5 +27,5 @@ function Sidebar() {
         </div>
     )
 }
- 
+
 export default Sidebar;

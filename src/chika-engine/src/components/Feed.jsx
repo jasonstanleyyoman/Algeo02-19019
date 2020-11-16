@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style.css';
 
 const Feed = ({links, similarity, title, sentence, total_words}) => {
-    
+
     return (
         <div class='feed'>
             <div class='row'>
-                <h2 class='feed-title'><a href={links}target="_blank">{title}</a></h2>
+                <h2 class='feed-title'><a href={links}target="_blank" rel="noreferrer">{title}</a></h2>
                 <div class='feed-text'><p>{sentence}</p></div>
             </div>
             <div class='row'>
@@ -20,7 +20,7 @@ const Feed = ({links, similarity, title, sentence, total_words}) => {
                 </div>
                 <div class='col'></div>
             </div>
-                
+
         </div>
     );
 };
