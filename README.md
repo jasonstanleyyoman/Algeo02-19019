@@ -92,9 +92,7 @@ python3 Algeo02-19019/src/server/app.py
 Pengguna diharapkan sudah menginstall nodejs dan package manager (npm atau yarn) di mesinnya. Jika belum silahkan kunjungi laman berikut untuk panduan instalasinya
 
 [Node JS](https://nodejs.org/en/download/)
-
 <br/>
-
 [yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
 
 Jalankan frontend dengan menggunakan command ini
