@@ -32,10 +32,6 @@ const Searched = ({match}) => {
                 data: {}
             })
             .then(response => {
-                console.log(response.data);
-                console.log(response.data.titles);
-                console.log(response.data.term);
-                setResult(response.data);
                 setFeeds(response.data.ranks);
                 setTitles(response.data.titles);
                 setTerms(response.data.term);
@@ -71,7 +67,7 @@ const Searched = ({match}) => {
                                 Try searching other things.</p>
                         </div>)
         } else {
-            component = feeds.map((feed, index) =>    
+            component = feeds.map((feed, index) =>
                 <div key={`${index}-feed-${match}-${feed.links}`}>
                     <Feed links={feed.links} similarity={feed.similarity} title={feed.title} sentence={feed.first_15_words} total_words={feed.total_words}/>
                 </div>
@@ -86,7 +82,7 @@ const Searched = ({match}) => {
                 <div class='col-4 no-pad cell'>
                     <Sidebar />
                 </div>
-                <div class='col d-flex load cell'>
+                <div class='col-6 d-flex load cell'>
                     <div class='col'>
                         {component}
                         <Collapsible trigger='Search Result Details' classParentString='feed' className='res-text' openedClassName='res-text'>
