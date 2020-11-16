@@ -43,17 +43,39 @@ Setelah itu install dependencies pythonnya dengan cara yang disesuaikan dengan s
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/installation/)
 - [BeautifulSoup4](https://pypi.org/project/beautifulsoup4/)
 - [nltk](https://www.nltk.org/install.html)
+Setalah menginstall nltk, Anda perlu menginstall beberapa package stopwords dan punkt di nltk.
+--- Masuk ke Interpreter python Anda. Bisa menggunakan salah satu dari command ini :
+```sh
+python3
+```
+```sh
+python
+```
+```sh
+py.exe
+```
+--- Setelah itu download package nltk
+```python
+>>> import nltk
+>>> nltk.download()
+```
+Jika Anda dihadapkan dengan GUI untuk download serperti dibawah ini, cari package bernama stopwords dan punkt dan lakukan download
+
+Jika tidak, jalankan command ini
+```python
+>>> d punkt
+>>> d stopwords
+```
 - [numpy](https://numpy.org/install/)
 - [pdftotext](https://pypi.org/project/pdftotext/)
 - [requests](https://requests.readthedocs.io/en/master/user/install/#install)
 
 <br/>
-Jalankan backend dengan menggunakan command ini
+Setelah semua dependencies berhasil diinstall, jalankan backend dengan menggunakan command ini
 <br/>
 
 ```sh
-cd src/server
-python3 app.py
+python3 Algeo02-19019/src/server/app.py
 ```
 
 **Jika tidak terjadi apa-apa, maka jalankan command dengan menggantikan python3 dengan python atau py**
@@ -65,27 +87,27 @@ Pengguna diharapkan sudah menginstall nodejs dan package manager (npm atau yarn)
 
 Jalankan frontend dengan menggunakan command ini
 ```sh
-cd src/chika-engine
+cd Algeo02-19019/src/chika-engine
 npm install # yarn install jika menggunakan yarn
 npm start
 ```
 
 ## Contoh kode
 #### Web Scraping
-Jika ingin menggunakan web scrapping untuk mengambil data, execute command ini
+Repository ini sudah menyediakan data hasil web scrapping untuk digunakan. Tetapi, jika Anda ingin mengambil data dengan web scrapping lagi, jalankan command ini
 ```sh
-python3 src/server/web-scrapping/web-scrapper.py ${JumlahDokumen} # Ganti ${JumlahDokumen} dengan jumlah dokumen yang ingin diambil
+python3 Algeo02-19019/src/server/web-scrapping/web-scrapper.py ${JumlahDokumen} # Ganti ${JumlahDokumen} dengan jumlah dokumen yang ingin diambil
 ```
 Contoh :
 ```sh
-python3 src/server/web-scrapping/web-scrapper.py 30
+python3 Algeo02-19019/src/server/web-scrapping/web-scrapper.py 30
 ```
 
 Setelah itu jalankan command di bawah untuk memproses data yang diambil
 ```sh
-python3 src/server/preprocess.py
-python3 src/server/total_words.py
-python3 src/server/get_15_word.py
+python3 Algeo02-19019/src/server/preprocess.py
+python3 Algeo02-19019/src/server/total_words.py
+python3 Algeo02-19019/src/server/get_15_word.py
 ```
 **Jika tidak terjadi apa-apa, maka jalankan command dengan menggantikan python3 dengan python atau py**
 
