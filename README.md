@@ -44,7 +44,9 @@ Setelah itu install dependencies pythonnya dengan cara yang disesuaikan dengan s
 - [BeautifulSoup4](https://pypi.org/project/beautifulsoup4/)
 - [nltk](https://www.nltk.org/install.html)
 Setalah menginstall nltk, Anda perlu menginstall beberapa package stopwords dan punkt di nltk.
+
 <br/>
+
 --- Masuk ke Interpreter python Anda. Bisa menggunakan salah satu dari command ini :
 ```sh
 python3
@@ -61,18 +63,24 @@ py.exe
 >>> nltk.download()
 ```
 Jika Anda dihadapkan dengan GUI untuk download serperti dibawah ini, cari package bernama stopwords dan punkt dan lakukan download
+
 ![nltk-gui](https://github.com/jasonstanleyyoman/Algeo02-19019/blob/main/src/img/nltk-gui.png?raw=true)
+
 Jika tidak, jalankan command ini
 ```python
 >>> d punkt
 >>> d stopwords
 ```
+![nltk-linux](https://github.com/jasonstanleyyoman/Algeo02-19019/blob/main/src/img/nltk-linux.png?raw=true)
+
 - [numpy](https://numpy.org/install/)
 - [pdftotext](https://pypi.org/project/pdftotext/)
 - [requests](https://requests.readthedocs.io/en/master/user/install/#install)
 
 <br/>
+
 Setelah semua dependencies berhasil diinstall, jalankan backend dengan menggunakan command ini
+
 <br/>
 
 ```sh
@@ -84,6 +92,9 @@ python3 Algeo02-19019/src/server/app.py
 Pengguna diharapkan sudah menginstall nodejs dan package manager (npm atau yarn) di mesinnya. Jika belum silahkan kunjungi laman berikut untuk panduan instalasinya
 
 [Node JS](https://nodejs.org/en/download/)
+
+<br/>
+
 [yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
 
 Jalankan frontend dengan menggunakan command ini
